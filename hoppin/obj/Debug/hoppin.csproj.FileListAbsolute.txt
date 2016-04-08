@@ -1,0 +1,9 @@
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\bin\Debug\hoppin.exe.config
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\bin\Debug\hoppin.exe
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\bin\Debug\hoppin.pdb
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.csprojResolveAssemblyReference.cache
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.Properties.Resources.resources
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.csproj.GenerateResource.Cache
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.exe
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.pdb
+C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.HoppinUI.resources
