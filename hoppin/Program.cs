@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace hoppin
 {
     static class Program
@@ -16,7 +17,15 @@ namespace hoppin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            string[] name = new string[2] { "deemo", "cytus" };
+
+            List<AbstractPlayer> playerList = new List<AbstractPlayer>();
+            playerList.Add(new SamplePlayer());
+            playerList.Add(new SamplePlayer());
+
             Application.Run(new HoppinUI());
+
         }
     }
 }

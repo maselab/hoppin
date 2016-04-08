@@ -34,9 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 503);
+            this.ClientSize = new System.Drawing.Size(700, 503);
             this.Name = "HoppinUI";
-            this.Text = "Form1";
+            this.Text = "HoppinUI";
             this.Load += new System.EventHandler(this.HoppinUI_Load);
             this.ResumeLayout(false);
 
