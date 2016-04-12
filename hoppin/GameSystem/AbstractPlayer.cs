@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace hoppin
 {
-    class AbstractPlayer
+    abstract class AbstractPlayer
     {
+        
     }
 }
