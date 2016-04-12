@@ -26,7 +26,7 @@ namespace hoppin
 
             Application.Run(new HoppinUI());
 
-            // test message (onose)
+            // test message (kodama)
 
         }
     }

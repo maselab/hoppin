@@ -8,3 +8,4 @@ C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\
 C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.pdb
 C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\hoppin.HoppinUI.resources
 C:\Users\hashiguchi\Documents\hoppin\hoppin\bin\Debug\hoppin.exe.config
+C:\Users\airberun\Documents\Visual Studio 2012\Projects\hoppin\bin\Debug\hoppin.exe.config
