@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hoppin
+namespace hoppin.GameSystem
 {
-    abstract class AbstractPlayer
+    abstract class Judgement
     {
-        abstract public PlayerMove move(); 
+        abstract public void JudgePlayerMove();
     }
 }
