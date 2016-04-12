@@ -10,3 +10,11 @@ C:\Users\hayamizu\Documents\Visual Studio 2012\Projects\hoppin\hoppin\obj\Debug\
 C:\Users\hashiguchi\Documents\hoppin\hoppin\bin\Debug\hoppin.exe.config
 C:\Users\airberun\Documents\Visual Studio 2012\Projects\hoppin\bin\Debug\hoppin.exe.config
 C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\bin\Debug\hoppin.exe.config
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.csprojResolveAssemblyReference.cache
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.HoppinUI.resources
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.Properties.Resources.resources
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.csproj.GenerateResource.Cache
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\bin\Debug\hoppin.exe
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\bin\Debug\hoppin.pdb
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.exe
+C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.pdb
