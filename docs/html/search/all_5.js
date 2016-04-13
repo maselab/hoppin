@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['judgement',['Judgement',['../d7/de6/classhoppin_1_1_game_system_1_1_judgement.html',1,'hoppin::GameSystem']]],
-  ['judgement_2ecs',['Judgement.cs',['../d4/d79/_judgement_8cs.html',1,'']]],
-  ['judgeplayermove',['JudgePlayerMove',['../d7/de6/classhoppin_1_1_game_system_1_1_judgement.html#ac2aedd52103fdf68766390f2fb4487a3',1,'hoppin::GameSystem::Judgement']]]
+  ['sampleplayer',['SamplePlayer',['../d7/dfe/classhoppin_1_1_sample_player.html',1,'hoppin']]],
+  ['sampleplayer_2ecs',['SamplePlayer.cs',['../d6/d10/_sample_player_8cs.html',1,'']]],
+  ['settings_2edesigner_2ecs',['Settings.Designer.cs',['../d1/d1c/_settings_8_designer_8cs.html',1,'']]]
 ];
