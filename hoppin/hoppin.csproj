@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSystem\GameManager.cs" />
     <Compile Include="GameSystem\GameState.cs" />
     <Compile Include="GameSystem\Judgement.cs" />
     <Compile Include="SamplePlayer\SamplePlayer.cs" />

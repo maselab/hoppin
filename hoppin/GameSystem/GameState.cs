@@ -15,8 +15,8 @@ namespace hoppin.GameSystem
         private const int FIELDHEIGHT = 8;
         private const int FIELDWIDTH = 8;
         private int[,] fieldState = new int[FIELDHEIGHT,FIELDWIDTH];
-        private Dictionary<int, int> playerScoreList = new Dictionary<int, int>();
-        private Dictionary<int, AbstractPlayer> playerList = new Dictionary<int, AbstractPlayer>();
+        protected Dictionary<int, int> playerScoreList = new Dictionary<int, int>();
+        protected Dictionary<int, AbstractPlayer> playerList = new Dictionary<int, AbstractPlayer>();
 
 
         public int FieldWidth
