@@ -14,7 +14,21 @@ namespace hoppin.GameSystem
         //・アイテム取得判定
         //  ・アイテムの生成
         //  ・スコア換算
-        //GameStateを返す
+        //GameState内のfieldStateと，playerScoreを変更する．
+
+        private GameState gameState;
+        private int playerScore;
+        private FieldId thisTurnPlayer;
+        private PlayerMove playerMove;
+
+        public Judgement(GameState gameState, int playerScore, FieldId thisTurnPlayer, PlayerMove playerMove)
+        {
+            this.gameState = gameState;
+            this.playerScore = playerScore;
+            this.thisTurnPlayer = thisTurnPlayer;
+            this.playerMove = playerMove;
+        }
+        
         abstract public void JudgePlayerMove();
 
     }

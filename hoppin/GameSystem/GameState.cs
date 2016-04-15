@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace hoppin.GameSystem
 {
-    enum PlayerMove : int { up,down,left,right };
+    enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
+    enum FieldId : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,ARROW };
 
-    abstract class GameState
+    class GameState
     {
         private const int PLAYERNUM = 4;
-        private int[,] fieldState = new int[8,8];
-        private int[] playerScore = new int[PLAYERNUM]; 
-        private AbstractPlayer[] playerArray = new AbstractPlayer[PLAYERNUM];
+        private const int FIELDHEIGHT = 8;
+        private const int FIELDWIDTH = 8;
+        private int[,] fieldState = new int[FIELDHEIGHT,FIELDWIDTH];
+        private Dictionary<int, int> playerScoreList = new Dictionary<int, int>();
+        private Dictionary<int, AbstractPlayer> playerList = new Dictionary<int, AbstractPlayer>();
+
+
+        public int FieldWidth
+        {
+            get { return FIELDWIDTH; }
+        }
+        
+        public int FieldHeight
+        {
+            get { return FIELDHEIGHT; }
+        }
 
         public int[,] FieldState
         {
