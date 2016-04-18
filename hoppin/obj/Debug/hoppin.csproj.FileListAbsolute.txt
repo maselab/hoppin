@@ -21,3 +21,5 @@ C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\ho
 C:\Users\hayashi chihiro\Documents\hoppin\hoppin\bin\Debug\hoppin.exe.config
 C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.exe
 C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.pdb
+C:\Users\hashiguchi\Documents\hoppin\hoppin\obj\Debug\hoppin.exe
+C:\Users\hashiguchi\Documents\hoppin\hoppin\obj\Debug\hoppin.pdb
