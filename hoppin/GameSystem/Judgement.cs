@@ -18,10 +18,10 @@ namespace hoppin.GameSystem
 
         private GameState gameState;
         private int playerScore;
-        private FieldId thisTurnPlayer;
+        private FieldObject thisTurnPlayer;
         private PlayerMove playerMove;
 
-        public Judgement(GameState gameState, int playerScore, FieldId thisTurnPlayer, PlayerMove playerMove)
+        public Judgement(GameState gameState, int playerScore, FieldObject thisTurnPlayer, PlayerMove playerMove)
         {
             this.gameState = gameState;
             this.playerScore = playerScore;
