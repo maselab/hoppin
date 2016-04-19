@@ -20,7 +20,7 @@ namespace hoppin.GameSystem
 
             public PrivateGameState(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3,AbstractPlayer player4)
             {
-                // fieldStateにplayer配置
+                // fieldObjectにplayer配置
                 // playerList,scoreListにデータ挿入
                 // あとは?
 
@@ -28,6 +28,8 @@ namespace hoppin.GameSystem
                 playerList.Add((int)FieldObject.PLAYER2, player2);
                 playerList.Add((int)FieldObject.PLAYER3, player3);
                 playerList.Add((int)FieldObject.PLAYER4, player4);
+
+
 
                 playerScoreList.Add((int)FieldObject.PLAYER1, 0);
                 playerScoreList.Add((int)FieldObject.PLAYER2, 0);
