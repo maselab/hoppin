@@ -62,7 +62,7 @@ namespace hoppin.GameSystem
             public PrivateGameState(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3,AbstractPlayer player4)
             {
                 // fieldObjectにplayer配置 :ok
-                // fieldStoorColorに初期色 :
+                // fieldStoorColorに初期色 :ok
                 // playerList,scoreListにデータ挿入 :ok
 
                 for(int column = 0; column < this.FieldWidth; column++)
