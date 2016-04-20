@@ -18,3 +18,6 @@ C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\bin\Debug\ho
 C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\bin\Debug\hoppin.pdb
 C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.exe
 C:\Users\Ryosuke Onose\Documents\Visual Studio 2015\Projects\hoppin\obj\Debug\hoppin.pdb
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\bin\Debug\hoppin.exe.config
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.exe
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.pdb
