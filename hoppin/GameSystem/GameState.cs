@@ -24,8 +24,19 @@ namespace hoppin.GameSystem
         private FieldColor[,] fieldFloorColor = new FieldColor[FIELDHEIGHT, FIELDWIDTH];
         protected Dictionary<int, int> playerScoreList = new Dictionary<int, int>();
         protected Dictionary<int, AbstractPlayer> playerList = new Dictionary<int, AbstractPlayer>();
-        
-        
+
+        protected PlayerMove currentPlayerMove;
+        protected FieldObject currentPlayer;
+
+        public PlayerMove CurrentPlayerMove
+        {
+            get { return this.currentPlayerMove; }
+        }
+
+        public FieldObject CurrentPlayer
+        {
+            get { return this.currentPlayer; }
+        }
 
         public int FieldWidth
         {

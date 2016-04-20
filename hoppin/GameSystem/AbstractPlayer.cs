@@ -10,7 +10,7 @@ namespace hoppin
 {
     abstract class AbstractPlayer
     {
-        private String name;
+        protected String name;
         abstract public PlayerMove move(); 
 
         public String Name
