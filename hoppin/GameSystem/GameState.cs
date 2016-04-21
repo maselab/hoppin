@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace hoppin.GameSystem
 {
     enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
-    enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,ARROW };
+    enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
     enum FieldColor : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4 };
 
 
