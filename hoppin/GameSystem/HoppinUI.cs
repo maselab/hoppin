@@ -21,5 +21,12 @@ namespace hoppin
         {
 
         }
+        /// <summary>
+        /// 描画インタフェース
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnPaint(PaintEventArgs e)
+        {
+        }
     }
 }
