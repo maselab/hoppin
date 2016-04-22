@@ -33,6 +33,9 @@ namespace hoppin
 
             BattleField battleField = new BattleField();
             battleField.drawBlankField(e);
+
+            ScoreBoard scoreBoard = new ScoreBoard();
+            scoreBoard.draw(e);
         }
     }
 }
