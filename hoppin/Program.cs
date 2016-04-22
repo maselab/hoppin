@@ -23,11 +23,11 @@ namespace hoppin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            string[] name = new string[2] { "deemo", "cytus" };
+            //string[] name = new string[2] { "deemo", "cytus" };
 
-            List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
-            playerList.Add(new SamplePlayer());
-            playerList.Add(new SamplePlayer());
+            //List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
+            //playerList.Add(new SamplePlayer());
+            //playerList.Add(new SamplePlayer());
 
             Application.Run(new HoppinUI());
 

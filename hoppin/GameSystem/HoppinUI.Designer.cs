@@ -1,7 +1,11 @@
-﻿namespace hoppin
+﻿using hoppin.GameSystem.UI;
+
+namespace hoppin
 {
     partial class HoppinUI
     {
+
+        Style style = new Style();
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -34,7 +38,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 503);
+            this.ClientSize = new System.Drawing.Size(style.windowWidth, style.windowHeight);
             this.Name = "HoppinUI";
             this.Text = "HoppinUI";
             this.Load += new System.EventHandler(this.HoppinUI_Load);
