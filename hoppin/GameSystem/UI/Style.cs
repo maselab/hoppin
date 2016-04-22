@@ -19,5 +19,14 @@ namespace hoppin.GameSystem.UI
         public Color turnBoardRestColor = Color.FromArgb(255, 51, 51, 51);
         public Color turnColor = Color.FromArgb(255, 204, 204, 204);
 
+        public Color scoreInactiveColor = Color.FromArgb(127, 255, 255, 255);
+        public Color scoreColor = Color.White;
+
+        public Color player1Color = Color.FromArgb(255, 0, 146, 80);
+        public Color player2Color = Color.FromArgb(255, 237, 173, 11);
+        public Color player3Color = Color.FromArgb(255, 191, 30, 86);
+        public Color player4Color = Color.FromArgb(255, 0, 134, 171);
+
+    
     }
 }

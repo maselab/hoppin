@@ -36,6 +36,9 @@ namespace hoppin
 
             TurnBoard turnBoard = new TurnBoard();
             turnBoard.draw(e);
+
+            ScoreBoard scoreBoard = new ScoreBoard();
+            scoreBoard.draw(e);
         }
     }
 }
