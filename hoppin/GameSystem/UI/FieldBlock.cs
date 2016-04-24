@@ -10,7 +10,11 @@ namespace hoppin.GameSystem.UI
 {
     public enum BlockType
     {
-        PlayerA, PlayerB, PlayerC, PlayerD, Dash, ArrowT, ArrowB, ArrowL, ArrowR, Blank
+        Blank,
+        PaintedA, PaintedB, PaintedC, PaintedD,  
+        PlayerA, PlayerB, PlayerC, PlayerD,
+        ArrowT, ArrowR, ArrowB, ArrowL,
+        Dash
     }
     public class FieldBlock
     {
@@ -26,15 +30,19 @@ namespace hoppin.GameSystem.UI
                 switch (blockType)
                 {
                     case BlockType.PlayerA:
+                    case BlockType.PaintedA:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
                     case BlockType.PlayerB:
+                    case BlockType.PaintedB:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
                     case BlockType.PlayerC:
+                    case BlockType.PaintedC:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
                     case BlockType.PlayerD:
+                    case BlockType.PaintedD:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:
@@ -55,6 +63,12 @@ namespace hoppin.GameSystem.UI
                         break;
                     case BlockType.Dash:
                         drawShoes(e);
+                        break;
+                    case BlockType.PlayerA:
+                    case BlockType.PlayerB:
+                    case BlockType.PlayerC:
+                    case BlockType.PlayerD:
+                        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
                         break;
                     default: break;
                 }
