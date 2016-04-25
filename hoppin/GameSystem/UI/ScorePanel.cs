@@ -11,13 +11,29 @@ namespace hoppin.GameSystem.UI
     class ScorePanel
     {
         Style style = new Style();
-        public void draw(PaintEventArgs e, Color panelColor)
+        string playerID = "00";
+        Color panelColor = new Color();
+        String playerName = "Null Player";
+        int score = 0;
+        bool active = false;
+
+        public ScorePanel() { }
+        public ScorePanel(String playerID_, Color panelColor_, String playerName_, int score_, bool active_) {
+            playerID = playerID_;
+            panelColor = panelColor_;
+            playerName = playerName_;
+            score = score_;
+            active = active_;
+
+        }
+        public void draw(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(new SolidBrush(panelColor), 0, 0, 210, 82);
-            //e.Graphics.FillRectangle(new SolidBrush(Color.AliceBlue), 0, 0, 82, 82);
-            e.Graphics.DrawString("1P", new Font("Impact", 60), new SolidBrush(style.scoreInactiveColor), new PointF(-8, -8));
-            e.Graphics.DrawString("Sample Player", new Font("Impact", 12), new SolidBrush(style.scoreColor), new PointF(82, 7));
-            e.Graphics.DrawString("0001", new Font("Impact", 39), new SolidBrush(style.scoreColor), new PointF(74, 20));
+            //e.Graphics.FillRectangle(new SolidBrush(Color.Aqua), 0, 0, 82, 82);
+            SolidBrush idColor = new SolidBrush((active) ?style.scoreColor:style.scoreInactiveColor);
+            e.Graphics.DrawString(playerID, new Font("Impact", 60), idColor, new PointF(-3, -8));
+            e.Graphics.DrawString(playerName, new Font("Impact", 12), new SolidBrush(style.scoreColor), new PointF(60, 7));
+            e.Graphics.DrawString(String.Format("{0:00000}", score), new Font("Impact", 39), new SolidBrush(style.scoreColor), new PointF(52, 20));
         }
     }
 }

@@ -13,15 +13,18 @@ namespace hoppin.GameSystem.UI
         Style style = new Style();
         public void draw(PaintEventArgs e)
         {
-            ScorePanel scorePanel = new ScorePanel();
             e.Graphics.TranslateTransform(420, 43);
-            scorePanel.draw(e, style.playerAColor);
+            ScorePanel scorePanelA = new ScorePanel("A", style.playerAColor, "Sample Player A", 0, true);
+            scorePanelA.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            scorePanel.draw(e, style.playerBColor);
+            ScorePanel scorePanelB = new ScorePanel("B", style.playerBColor, "Sample Player B", 1, false);
+            scorePanelB.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            scorePanel.draw(e, style.playerCColor);
+            ScorePanel scorePanelC = new ScorePanel("C", style.playerCColor, "Sample Player C", 10, false);
+            scorePanelC.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            scorePanel.draw(e, style.playerDColor);
+            ScorePanel scorePanelD = new ScorePanel("D", style.playerDColor, "Sample Player D", 100, false);
+            scorePanelD.draw(e);
             e.Graphics.ResetTransform();
         }
     }
