@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resources_2edesigner_2ecs',['Resources.Designer.cs',['../d6/d0e/_resources_8_designer_8cs.html',1,'']]]
+  ['gamemanager',['GameManager',['../classhoppin_1_1_game_system_1_1_game_manager.html',1,'hoppin::GameSystem']]],
+  ['gamestate',['GameState',['../classhoppin_1_1_game_system_1_1_game_state.html',1,'hoppin::GameSystem']]]
 ];

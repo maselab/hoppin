@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['judgement',['Judgement',['../d7/de6/classhoppin_1_1_game_system_1_1_judgement.html',1,'hoppin::GameSystem']]]
+  ['gamemanager',['GameManager',['../classhoppin_1_1_game_system_1_1_game_manager.html',1,'hoppin::GameSystem']]],
+  ['gamestate',['GameState',['../classhoppin_1_1_game_system_1_1_game_state.html',1,'hoppin::GameSystem']]]
 ];
