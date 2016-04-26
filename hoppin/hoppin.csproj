@@ -53,6 +53,7 @@
     <Compile Include="GameSystem\UI\Background.cs" />
     <Compile Include="GameSystem\UI\BattleField.cs" />
     <Compile Include="GameSystem\UI\FieldBlock.cs" />
+    <Compile Include="GameSystem\UI\FieldPanel.cs" />
     <Compile Include="GameSystem\UI\ScoreBoard.cs" />
     <Compile Include="GameSystem\UI\ScorePanel.cs" />
     <Compile Include="GameSystem\UI\Style.cs" />
