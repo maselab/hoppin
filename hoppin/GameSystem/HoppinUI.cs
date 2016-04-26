@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using hoppin.GameSystem.UI;
+using hoppin.GameSystem;
 
 namespace hoppin
 {

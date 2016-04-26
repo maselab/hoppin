@@ -44,6 +44,7 @@ namespace hoppin.GameSystem
             
             for(int i = 0; i < PlayCount; i++)
             {
+                gameState.TurnNum++;
                 gameState.CurrentPlayer = FieldObject.PLAYER1;
                 Debug.WriteLine(gameState.CurrentPlayer);
                 ProcessTurn();
@@ -210,7 +211,7 @@ namespace hoppin.GameSystem
                     Repaint();
                     GetBonus(destination);
                     gameState.bonusPositionList.RemoveAll(s => s.IsSamePosition(destination));
-                    
+                    SearchClosedSpace();
                 }
                 else if (IsGetItems() == FieldObject.BOX)//アイテム2
                 {
@@ -451,6 +452,8 @@ namespace hoppin.GameSystem
 
                     }
                 }
+
+            int enclosedFieldNum = 0;
             for (int i = 0; i < gameState.FieldHeight; i++)//囲み領域の発見
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
@@ -458,9 +461,12 @@ namespace hoppin.GameSystem
                     {//-1の箇所が囲まれている領域
                         // getArea[i, j] = 1;
                         gameState.FieldFloorColor[i, j] = gameState.CurrentPlayer;
+                        enclosedFieldNum++;
                     }
                 }
 
+            gameState.CurrentPlayerData.Score += enclosedFieldNum * 2;
+            if(enclosedFieldNum != 0) Debug.WriteLine("getBONUSPOINT!");
         }
         private int[,] Fill(int[,] field, int x, int y)
         { //塗りつぶしをする再帰関数
