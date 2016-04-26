@@ -24,8 +24,9 @@ namespace hoppin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            string[] name = new string[2] { "deemo", "cytus" };
+            //string[] name = new string[2] { "deemo", "cytus" };
 
+<<<<<<< HEAD
             /*
             List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
             playerList.Add(new SamplePlayer());
@@ -34,6 +35,13 @@ namespace hoppin
             GameManager gameManager = new GameManager(new SamplePlayer("a"),new SamplePlayer("b"), new SamplePlayer("c"), new SamplePlayer("d"));
             gameManager.ProcessGame();
             //Application.Run(new HoppinUI());
+=======
+            //List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
+            //playerList.Add(new SamplePlayer());
+            //playerList.Add(new SamplePlayer());
+
+            Application.Run(new HoppinUI());
+>>>>>>> master
 
             // test message (kodama)
 

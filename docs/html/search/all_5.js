@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['sampleplayer',['SamplePlayer',['../d7/dfe/classhoppin_1_1_sample_player.html',1,'hoppin']]],
-  ['sampleplayer_2ecs',['SamplePlayer.cs',['../d6/d10/_sample_player_8cs.html',1,'']]],
-  ['settings_2edesigner_2ecs',['Settings.Designer.cs',['../d1/d1c/_settings_8_designer_8cs.html',1,'']]]
+  ['gamesystem',['GameSystem',['../namespacehoppin_1_1_game_system.html',1,'hoppin']]],
+  ['hoppin',['hoppin',['../namespacehoppin.html',1,'']]],
+  ['hoppinui',['HoppinUI',['../classhoppin_1_1_hoppin_u_i.html',1,'hoppin']]],
+  ['properties',['Properties',['../namespacehoppin_1_1_properties.html',1,'hoppin']]],
+  ['ui',['UI',['../namespacehoppin_1_1_game_system_1_1_u_i.html',1,'hoppin::GameSystem']]]
 ];
