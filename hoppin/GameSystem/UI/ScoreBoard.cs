@@ -19,19 +19,19 @@ namespace hoppin.GameSystem.UI
         public void draw(PaintEventArgs e)
         {
             List<int> playerScores = gameState.GetPlayerScore();
-            //List<string> playerNames =
+            List<string> playerNames = gameState.playerName;
 
             e.Graphics.TranslateTransform(420, 43);
-            ScorePanel scorePanelA = new ScorePanel("A", style.playerAColor, "Sample Player A", playerScores[0], true);
+            ScorePanel scorePanelA = new ScorePanel("A", style.playerAColor, playerNames[0], playerScores[0], true);
             scorePanelA.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            ScorePanel scorePanelB = new ScorePanel("B", style.playerBColor, "Sample Player B", playerScores[1], false);
+            ScorePanel scorePanelB = new ScorePanel("B", style.playerBColor, playerNames[1], playerScores[1], false);
             scorePanelB.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            ScorePanel scorePanelC = new ScorePanel("C", style.playerCColor, "Sample Player C", playerScores[2], false);
+            ScorePanel scorePanelC = new ScorePanel("C", style.playerCColor, playerNames[2], playerScores[2], false);
             scorePanelC.draw(e);
             e.Graphics.TranslateTransform(0, 84);
-            ScorePanel scorePanelD = new ScorePanel("D", style.playerDColor, "Sample Player D", playerScores[3], false);
+            ScorePanel scorePanelD = new ScorePanel("D", style.playerDColor, playerNames[3], playerScores[3], false);
             scorePanelD.draw(e);
             e.Graphics.ResetTransform();
         }
