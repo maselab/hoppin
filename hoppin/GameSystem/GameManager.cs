@@ -489,10 +489,6 @@ namespace hoppin.GameSystem
             {
                 // fieldObjectにplayer配置 :ok
                 // fieldStoorColorに初期色 :ok
-<<<<<<< HEAD
-=======
-                // playerList,scoreListにデータ挿入 :ok
->>>>>>> 8047d692f75a6db8e849ce1f1ec310e7007dab60
 
                 for(int x = 0; x < this.FieldWidth; x++)
                 {
