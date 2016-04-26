@@ -14,7 +14,7 @@ namespace hoppin.GameSystem.UI
         PaintedA, PaintedB, PaintedC, PaintedD,  
         PlayerA, PlayerB, PlayerC, PlayerD,
         ArrowT, ArrowR, ArrowB, ArrowL,
-        Dash
+        Dash, Box
     }
     public class FieldBlock
     {
@@ -68,7 +68,9 @@ namespace hoppin.GameSystem.UI
                     case BlockType.PlayerB:
                     case BlockType.PlayerC:
                     case BlockType.PlayerD:
+                    case BlockType.Box:
                         e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
+                        break;
                         break;
                     default: break;
                 }
