@@ -8,16 +8,139 @@ using hoppin.GameSystem;
 
 namespace hoppin
 {
+
     class SamplePlayer : AbstractPlayer
     {
+        FieldObject[,] fieldState;
+
+        PlayerData myData;
+        List<Position> boxList;
+
+        public SamplePlayer()
+        {
+            this.name = "NoName";
+        }
+
         public SamplePlayer(string name)
         {
             this.name = name;
         }
 
-        override public PlayerMove move()
+        //※This player don't think floorColor!
+        override public PlayerMove GetMove()
         {
-            return PlayerMove.DOWN;
+            fieldState = GetFieldState();
+
+            myData = GetMyData();
+            System.Diagnostics.Debug.WriteLine(myData.PositionX + " , " + myData.PositionY);
+            boxList = GetBoxPositionList();
+
+            int nearestBoxDistance = 100;//ありえない遠さpriceless
+            Position nearestBoxPosition = null;
+
+            //Search nearest box position
+            foreach(Position position in boxList)
+            {
+
+                int boxDistance = Math.Abs(position.x - myData.PositionX) + Math.Abs(position.y - myData.PositionY);
+                if( boxDistance < nearestBoxDistance)
+                {
+                    nearestBoxPosition = position;
+                }
+            }
+
+            if(nearestBoxPosition != null)
+            System.Diagnostics.Debug.WriteLine("box:" + nearestBoxPosition.x + " " + nearestBoxPosition.y);
+
+            //箱がないと適当に動く
+            if (nearestBoxPosition == null)
+            {
+                if (IsMovable(PlayerMove.UP)) return PlayerMove.UP;
+                if (IsMovable(PlayerMove.DOWN)) return PlayerMove.DOWN;
+                if (IsMovable(PlayerMove.LEFT)) return PlayerMove.LEFT;
+                else return PlayerMove.RIGHT;
+            }
+
+            if (myData.PositionX < nearestBoxPosition.x)
+            {
+                if (IsMovable(PlayerMove.RIGHT)) return PlayerMove.RIGHT;
+            }
+            else if (myData.PositionX > nearestBoxPosition.x)
+            {
+                if (IsMovable(PlayerMove.LEFT)) return PlayerMove.LEFT;
+            }
+            else if (myData.PositionY < nearestBoxPosition.y)
+            {
+                if (IsMovable(PlayerMove.DOWN)) return PlayerMove.DOWN;
+            }
+            return PlayerMove.UP;
+
+        }
+        
+        private Boolean IsMovable(PlayerMove playerMove)
+        {
+            if (playerMove == PlayerMove.UP)
+            {
+                if (myData.PositionY == 0)
+                {
+                    return false;
+                }
+
+                if (fieldState[myData.PositionY - 1, myData.PositionX] == FieldObject.BLANK ||
+                    fieldState[myData.PositionY - 1, myData.PositionX] == FieldObject.SHOES ||
+                    fieldState[myData.PositionY - 1, myData.PositionX] == FieldObject.BONUS ||
+                    fieldState[myData.PositionY - 1, myData.PositionX] == FieldObject.BOX)
+                {
+                    return true;
+                }
+            }
+            else if (playerMove == PlayerMove.DOWN)
+            {
+                if (myData.PositionY == 7)
+                {
+                    return false;
+                }
+
+                if (fieldState[myData.PositionY + 1, myData.PositionX] == FieldObject.BLANK ||
+                    fieldState[myData.PositionY + 1, myData.PositionX] == FieldObject.SHOES ||
+                    fieldState[myData.PositionY + 1, myData.PositionX] == FieldObject.BONUS ||
+                    fieldState[myData.PositionY + 1, myData.PositionX] == FieldObject.BOX)
+                {
+                    return true;
+                }
+            }
+            else if( playerMove == PlayerMove.RIGHT)
+            {
+                if(myData.PositionX == 7)
+                {
+                    return false;
+                }
+
+                if (fieldState[myData.PositionY, myData.PositionX + 1] == FieldObject.BLANK ||
+                   fieldState[myData.PositionY, myData.PositionX + 1] == FieldObject.SHOES ||
+                   fieldState[myData.PositionY, myData.PositionX + 1] == FieldObject.BONUS ||
+                   fieldState[myData.PositionY, myData.PositionX + 1] == FieldObject.BOX)
+                {
+                    return true;
+                }
+            }
+            else if (playerMove == PlayerMove.LEFT)
+            {
+                if (myData.PositionX == 0)
+                {
+                    return false;
+                }
+
+                if (fieldState[myData.PositionY, myData.PositionX - 1] == FieldObject.BLANK ||
+                   fieldState[myData.PositionY, myData.PositionX - 1] == FieldObject.SHOES ||
+                   fieldState[myData.PositionY, myData.PositionX - 1] == FieldObject.BONUS ||
+                   fieldState[myData.PositionY, myData.PositionX - 1] == FieldObject.BOX)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
