@@ -67,10 +67,10 @@ namespace hoppin
             BattleField battleField = new BattleField(gameManager.gameState);
             battleField.drawBlankField(e);
 
-            TurnBoard turnBoard = new TurnBoard();
+            TurnBoard turnBoard = new TurnBoard(gameManager.gameState);
             turnBoard.draw(e);
 
-            ScoreBoard scoreBoard = new ScoreBoard();
+            ScoreBoard scoreBoard = new ScoreBoard(gameManager.gameState);
             scoreBoard.draw(e);
         }
     }
