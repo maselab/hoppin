@@ -41,7 +41,7 @@ namespace hoppin
             return gameState.FieldState;
         }
 
-        public FieldColor[,] GetFieldFloorColor()
+        public FieldObject[,] GetFieldFloorColor()
         {
             return gameState.FieldFloorColor;
         }

@@ -8,7 +8,6 @@ namespace hoppin.GameSystem
 {
     enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
     enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
-    enum FieldColor : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4 };
 
 
     ///<summary>
@@ -18,12 +17,11 @@ namespace hoppin.GameSystem
     [Serializable()]
     class GameState
     {
-        private const int PLAYERNUM = 4;
         private const int FIELDHEIGHT = 8;
         private const int FIELDWIDTH = 8;
         private const int SHOESTURN = 5;
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
-        protected FieldColor[,] fieldFloorColor = new FieldColor[FIELDHEIGHT, FIELDWIDTH];
+        protected FieldObject[,] fieldFloorColor = new FieldObject[FIELDHEIGHT, FIELDWIDTH];
         public Dictionary<FieldObject,PlayerData> playerDataList = new Dictionary<FieldObject, PlayerData>();
 
         public List<Position> boxPositionList = new List<Position>();
@@ -70,7 +68,7 @@ namespace hoppin.GameSystem
             set { this.fieldState = value; }
         }
 
-        public FieldColor[,] FieldFloorColor
+        public FieldObject[,] FieldFloorColor
         {
             get { return this.fieldFloorColor; }
             set { this.fieldFloorColor = value; }
