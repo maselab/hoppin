@@ -15,15 +15,20 @@ namespace hoppin.GameSystem
     ///全ゲーム情報を保持する
     ///GameManagerが統括する
     ///</summary>
+    [Serializable()]
     class GameState
     {
         private const int PLAYERNUM = 4;
         private const int FIELDHEIGHT = 8;
         private const int FIELDWIDTH = 8;
-        private FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
-        private FieldColor[,] fieldFloorColor = new FieldColor[FIELDHEIGHT, FIELDWIDTH];
-        protected Dictionary<int, int> playerScoreList = new Dictionary<int, int>();
-        protected Dictionary<int, AbstractPlayer> playerList = new Dictionary<int, AbstractPlayer>();
+        private const int SHOESTURN = 5;
+        protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
+        protected FieldColor[,] fieldFloorColor = new FieldColor[FIELDHEIGHT, FIELDWIDTH];
+        public Dictionary<FieldObject,PlayerData> playerDataList = new Dictionary<FieldObject, PlayerData>();
+
+        public List<Position> boxPositionList = new List<Position>();
+        public List<Position> shoesPositionList = new List<Position>();
+        public List<Position> bonusPositionList = new List<Position>();
 
         protected PlayerMove currentPlayerMove;
         protected FieldObject currentPlayer;
@@ -38,6 +43,12 @@ namespace hoppin.GameSystem
             get { return this.currentPlayer; }
         }
 
+        public PlayerData CurrentPlayerData
+        {
+            get { return playerDataList[currentPlayer]; }
+        }
+
+
         public int FieldWidth
         {
             get { return FIELDWIDTH; }
@@ -46,6 +57,11 @@ namespace hoppin.GameSystem
         public int FieldHeight
         {
             get { return FIELDHEIGHT; }
+        }
+
+        public int ShoesTurn
+        {
+            get { return SHOESTURN; }
         }
 
         public FieldObject[,] FieldState
@@ -59,7 +75,6 @@ namespace hoppin.GameSystem
             get { return this.fieldFloorColor; }
             set { this.fieldFloorColor = value; }
         }
-
 
     }
 }

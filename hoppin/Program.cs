@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using hoppin.GameSystem;
 
 namespace hoppin
 {
@@ -25,11 +26,22 @@ namespace hoppin
 
             //string[] name = new string[2] { "deemo", "cytus" };
 
+<<<<<<< HEAD
+            /*
+            List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
+            playerList.Add(new SamplePlayer());
+            playerList.Add(new SamplePlayer());
+            */
+            GameManager gameManager = new GameManager(new SamplePlayer("a"),new SamplePlayer("b"), new SamplePlayer("c"), new SamplePlayer("d"));
+            gameManager.ProcessGame();
+            //Application.Run(new HoppinUI());
+=======
             //List<AbstractPlayer> playerList = new List<AbstractPlayer>(); /// プレイヤーリスト
             //playerList.Add(new SamplePlayer());
             //playerList.Add(new SamplePlayer());
 
             Application.Run(new HoppinUI());
+>>>>>>> master
 
             // test message (kodama)
 

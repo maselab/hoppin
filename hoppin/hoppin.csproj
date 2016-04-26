@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSystem\CopyUtility.cs" />
     <Compile Include="GameSystem\GameManager.cs" />
     <Compile Include="GameSystem\GameState.cs" />
     <Compile Include="GameSystem\Judgement.cs" />
+    <Compile Include="GameSystem\PlayerData.cs" />
+    <Compile Include="GameSystem\Position.cs" />
     <Compile Include="SamplePlayer\SamplePlayer.cs" />
     <Compile Include="GameSystem\AbstractPlayer.cs" />
     <Compile Include="GameSystem\HoppinUI.cs">
