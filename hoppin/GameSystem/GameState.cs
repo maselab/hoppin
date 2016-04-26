@@ -9,12 +9,13 @@ namespace hoppin.GameSystem
     public enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
     public enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
 
+
     ///<summary>
     ///全ゲーム情報を保持する
     ///GameManagerが統括する
     ///</summary>
     [Serializable()]
-    class GameState
+    public class GameState
     {
         private const int FIELDHEIGHT = 8;
         private const int FIELDWIDTH = 8;
