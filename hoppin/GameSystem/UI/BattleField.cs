@@ -50,7 +50,6 @@ namespace hoppin.GameSystem.UI
             e.Graphics.TranslateTransform(41, 41);
             fieldPanelMatrix = gameState.FieldFloorColor;
             fieldObjectMatrix = gameState.FieldState;
-            Console.WriteLine(">>>>>>>>>>" + gameState.FieldState[0, 0]);
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)

@@ -11,6 +11,11 @@ namespace hoppin.GameSystem.UI
     class ScoreBoard
     {
         Style style = new Style();
+        private GameState gameState;
+        public ScoreBoard(GameState gameState)
+        {
+            this.gameState = gameState;
+        }
         public void draw(PaintEventArgs e)
         {
             e.Graphics.TranslateTransform(420, 43);

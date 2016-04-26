@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using hoppin.GameSystem.UI;
 using hoppin.GameSystem;
-<<<<<<< HEAD
-
-=======
->>>>>>> hashiguchi_ver2
 
 namespace hoppin
 {
