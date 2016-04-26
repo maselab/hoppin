@@ -20,6 +20,7 @@ namespace hoppin.GameSystem
         private const int FIELDHEIGHT = 8;
         private const int FIELDWIDTH = 8;
         private const int SHOESTURN = 5;
+        private int turnNum = 0;
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
         protected FieldObject[,] fieldFloorColor = new FieldObject[FIELDHEIGHT, FIELDWIDTH];
         public Dictionary<FieldObject,PlayerData> playerDataList = new Dictionary<FieldObject, PlayerData>();
@@ -46,6 +47,11 @@ namespace hoppin.GameSystem
             get { return playerDataList[currentPlayer]; }
         }
 
+        public int TurnNum
+        {
+            get { return this.turnNum; }
+            set { this.turnNum = value; }
+        }
 
         public int FieldWidth
         {
@@ -72,6 +78,16 @@ namespace hoppin.GameSystem
         {
             get { return this.fieldFloorColor; }
             set { this.fieldFloorColor = value; }
+        }
+
+        public List<int> GetPlayerScore()
+        {
+            List<int> retList = new List<int>();
+            foreach(KeyValuePair<FieldObject,PlayerData> pair in playerDataList)
+            {
+                retList.Add(pair.Value.Score);
+            }
+            return retList;
         }
 
     }
