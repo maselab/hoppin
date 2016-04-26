@@ -8,14 +8,62 @@ using hoppin.GameSystem;
 
 namespace hoppin
 {
+    [Serializable()]
     abstract class AbstractPlayer
     {
-        protected String name;
-        abstract public PlayerMove move(); 
+        protected string name;
+        private GameState gameState;
 
-        public String Name
+        abstract public PlayerMove GetMove(); 
+
+        public string Name
         {
             get { return this.name; }
+        }
+
+        public void SetGameState(GameState gameState)
+        {
+            this.gameState = CopyUtility.DeepCopy<GameState>(gameState);
+        }
+
+        public Dictionary<FieldObject,PlayerData> GetPlayerDataList()
+        {
+            return gameState.playerDataList;
+        }
+        
+        public PlayerData GetMyData()
+        {
+            return gameState.playerDataList[gameState.CurrentPlayer];
+        }
+
+        public FieldObject[,] GetFieldState()
+        {
+            return gameState.FieldState;
+        }
+
+        public FieldColor[,] GetFieldFloorColor()
+        {
+            return gameState.FieldFloorColor;
+        }
+
+        public List<Position> GetBoxPositionList()
+        {
+            return gameState.boxPositionList;
+        }
+
+        public List<Position> GetShoesPosition()
+        {
+            return gameState.shoesPositionList;
+        }
+
+        public List<Position> GetBonusPosition()
+        {
+            return gameState.bonusPositionList;
+        }
+
+        public FieldObject GetPlayerId()
+        {
+            return gameState.CurrentPlayer;
         }
     }
 }
