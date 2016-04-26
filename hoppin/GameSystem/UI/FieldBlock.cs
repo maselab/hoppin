@@ -5,44 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using hoppin.GameSystem;
 
 namespace hoppin.GameSystem.UI
 {
-    public enum BlockType
-    {
-        Blank,
-        PaintedA, PaintedB, PaintedC, PaintedD,  
-        PlayerA, PlayerB, PlayerC, PlayerD,
-        ArrowT, ArrowR, ArrowB, ArrowL,
-        Dash, Box
-    }
     public class FieldBlock
     {
         Style style = new Style();
-        public void draw(PaintEventArgs e, int x, int y, BlockType blockType)
+        public void draw(PaintEventArgs e, int x, int y, FieldColor fieldColor)
         {
             e.Graphics.ResetTransform();
             e.Graphics.TranslateTransform(42 * (x+1), 42 * (y+1));
             drawBlockFrame(e);
-            if (blockType != BlockType.Blank)
+            if (fieldColor != FieldColor.BLANK)
             {
                 SolidBrush blockColor;
-                switch (blockType)
+                switch (fieldColor)
                 {
-                    case BlockType.PlayerA:
-                    case BlockType.PaintedA:
+                    case FieldColor.PLAYER1:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
-                    case BlockType.PlayerB:
-                    case BlockType.PaintedB:
+                    case FieldColor.PLAYER2:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
-                    case BlockType.PlayerC:
-                    case BlockType.PaintedC:
+                    case FieldColor.PLAYER3:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
-                    case BlockType.PlayerD:
-                    case BlockType.PaintedD:
+                    case FieldColor.PLAYER4:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:
@@ -53,27 +42,26 @@ namespace hoppin.GameSystem.UI
                 e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
                 e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
                 e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
-                switch (blockType)
-                {
-                    case BlockType.ArrowB:
-                    case BlockType.ArrowL:
-                    case BlockType.ArrowR:
-                    case BlockType.ArrowT:
-                        drawArrow(e, blockType);
-                        break;
-                    case BlockType.Dash:
-                        drawShoes(e);
-                        break;
-                    case BlockType.PlayerA:
-                    case BlockType.PlayerB:
-                    case BlockType.PlayerC:
-                    case BlockType.PlayerD:
-                    case BlockType.Box:
-                        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
-                        break;
-                        break;
-                    default: break;
-                }
+                //switch (fieldColor)
+                //{
+                //    case fieldColor.ArrowB:
+                //    case fieldColor.ArrowL:
+                //    case fieldColor.ArrowR:
+                //    case fieldColor.ArrowT:
+                //        drawArrow(e, fieldColor);
+                //        break;
+                //    case fieldColor.Dash:
+                //        drawShoes(e);
+                //        break;
+                //    case fieldColor.PlayerA:
+                //    case fieldColor.PlayerB:
+                //    case fieldColor.PlayerC:
+                //    case fieldColor.PlayerD:
+                //    case fieldColor.Box:
+                //        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
+                //        break;
+                //    default: break;
+                //}
             }
             e.Graphics.ResetTransform();
         }
@@ -84,34 +72,34 @@ namespace hoppin.GameSystem.UI
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 23, 10, 8, 14);
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 24, 25, 6, 4);
         }
-        void drawArrow(PaintEventArgs e, BlockType blockType)
-        {
-            e.Graphics.TranslateTransform(22, 22);
-            switch (blockType)
-            {
-                case BlockType.ArrowL:
-                    e.Graphics.RotateTransform(90F);
-                    break;
-                case BlockType.ArrowT:
-                    e.Graphics.RotateTransform(180F);
-                    break;
-                case BlockType.ArrowR:
-                    e.Graphics.RotateTransform(270F);
-                    break;
-                default: break;
-            }
-            Point[] points = new Point[9];
-            points[0] = new Point(-2, -11);
-            points[1] = new Point(-2, 2);
-            points[2] = new Point(-9, -5);
-            points[3] = new Point(-9, 2);
-            points[4] = new Point(0, 11);
-            points[5] = new Point(9, 2);
-            points[6] = new Point(9, -5);
-            points[7] = new Point(2, 2);
-            points[8] = new Point(2, -11);
-            e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
-        }
+        //void drawArrow(PaintEventArgs e, fieldColor fieldColor)
+        //{
+        //    e.Graphics.TranslateTransform(22, 22);
+        //    switch (fieldColor)
+        //    {
+        //        case fieldColor.ArrowL:
+        //            e.Graphics.RotateTransform(90F);
+        //            break;
+        //        case fieldColor.ArrowT:
+        //            e.Graphics.RotateTransform(180F);
+        //            break;
+        //        case fieldColor.ArrowR:
+        //            e.Graphics.RotateTransform(270F);
+        //            break;
+        //        default: break;
+        //    }
+        //    Point[] points = new Point[9];
+        //    points[0] = new Point(-2, -11);
+        //    points[1] = new Point(-2, 2);
+        //    points[2] = new Point(-9, -5);
+        //    points[3] = new Point(-9, 2);
+        //    points[4] = new Point(0, 11);
+        //    points[5] = new Point(9, 2);
+        //    points[6] = new Point(9, -5);
+        //    points[7] = new Point(2, 2);
+        //    points[8] = new Point(2, -11);
+        //    e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
+        //}
         void drawBlockFrame(PaintEventArgs e)
         {
             // left-top
