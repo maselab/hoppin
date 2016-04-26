@@ -10,7 +10,7 @@ namespace hoppin.GameSystem
 {
     class GameManager
     {
-        private NewGameState gameState;
+        public NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
         private int PlayCount = 200;
 
