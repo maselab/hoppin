@@ -24,6 +24,7 @@ namespace hoppin.GameSystem
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
         protected FieldObject[,] fieldFloorColor = new FieldObject[FIELDHEIGHT, FIELDWIDTH];
         public Dictionary<FieldObject,PlayerData> playerDataList = new Dictionary<FieldObject, PlayerData>();
+        public List<string> playerName = new List<string>();
 
         public List<Position> boxPositionList = new List<Position>();
         public List<Position> shoesPositionList = new List<Position>();
