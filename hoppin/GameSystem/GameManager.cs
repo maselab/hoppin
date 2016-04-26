@@ -10,9 +10,9 @@ namespace hoppin.GameSystem
 {
     class GameManager
     {
-        private PrivateGameState gameState;
+        private NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
-        private const int PlayCount = 200;
+        private int PlayCount = 200;
 
         private delegate PlayerMove MoveDelegate();
 
@@ -26,7 +26,7 @@ namespace hoppin.GameSystem
             playerList.Add(FieldObject.PLAYER2, player2);
             playerList.Add(FieldObject.PLAYER3, player3);
             playerList.Add(FieldObject.PLAYER4, player4);
-            gameState = new PrivateGameState();
+            gameState = new NewGameState();
         }
 
         public void ProcessGame()
@@ -483,9 +483,9 @@ namespace hoppin.GameSystem
         #endregion
 
         [Serializable()]
-        private class PrivateGameState : GameState
+        public class NewGameState : GameState
         {
-            public PrivateGameState()
+            public NewGameState()
             {
                 // fieldObjectにplayer配置 :ok
                 // fieldStoorColorに初期色 :ok
