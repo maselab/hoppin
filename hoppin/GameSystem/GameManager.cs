@@ -22,7 +22,7 @@ namespace hoppin.GameSystem
             playerList.Add(FieldObject.PLAYER2, player2);
             playerList.Add(FieldObject.PLAYER3, player3);
             playerList.Add(FieldObject.PLAYER4, player4);
-            gameState = new NewGameState();
+            gameState = new NewGameState(GetPlayerName());
         }
 
         public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount)
@@ -31,8 +31,18 @@ namespace hoppin.GameSystem
             playerList.Add(FieldObject.PLAYER2, player2);
             playerList.Add(FieldObject.PLAYER3, player3);
             playerList.Add(FieldObject.PLAYER4, player4);
-            gameState = new NewGameState();
+            gameState = new NewGameState(GetPlayerName());
             this.PlayCount = playCount;
+        }
+
+        public List<String> GetPlayerName()
+        {
+            List<string> retList = new List<string>();
+            foreach(KeyValuePair<FieldObject,AbstractPlayer> pair in playerList)
+            {
+                retList.Add(pair.Value.Name);
+            }
+            return retList;
         }
 
         public void ProcessGame()
@@ -517,10 +527,11 @@ namespace hoppin.GameSystem
         [Serializable()]
         public class NewGameState : GameState
         {
-            public NewGameState()
+            public NewGameState(List<string> playerName)
             {
                 // fieldObjectにplayer配置 :ok
                 // fieldStoorColorに初期色 :ok
+                this.playerName = playerName;
 
                 for(int x = 0; x < this.FieldWidth; x++)
                 {
