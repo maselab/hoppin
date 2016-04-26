@@ -15,18 +15,20 @@ namespace hoppin
 {
     public partial class HoppinUI : Form
     {
-        private GameState gameState;
+        private GameManager gameManager;
         private int count;
+        private delegate void GameProcessDelegate();
 
         public HoppinUI()
         {
             InitializeComponent();
         }
 
-        public HoppinUI(GameState gameState)
+        public HoppinUI(GameManager gameManager)
         {
             InitializeComponent();
-            this.gameState = gameState;
+            this.gameManager = gameManager;
+
 
             Timer timer = new Timer();
             timer.Interval = 10;
@@ -37,6 +39,10 @@ namespace hoppin
             this.SetStyle(ControlStyles.DoubleBuffer, true);
             this.SetStyle(ControlStyles.UserPaint, true);
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
+            GameProcessDelegate gameDelegate = new GameProcessDelegate(gameManager.ProcessGame);
+            IAsyncResult result = gameDelegate.BeginInvoke(null, null);
+            
         }
         private void tick(object sender, EventArgs e)
         {
@@ -58,7 +64,7 @@ namespace hoppin
             Background background = new Background();
             background.draw(e);
 
-            BattleField battleField = new BattleField(gameState);
+            BattleField battleField = new BattleField(gameManager.gameState);
             battleField.drawBlankField(e);
 
             TurnBoard turnBoard = new TurnBoard();

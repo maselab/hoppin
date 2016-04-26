@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace hoppin.GameSystem
 {
-    class GameManager
+    public class GameManager
     {
         public NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
@@ -41,7 +41,8 @@ namespace hoppin.GameSystem
             ///player毎にmoveもらってJudgeになげる．
             ///最終結果を最後に表示して終わり．
             ///
-            
+            System.Threading.Thread.Sleep(3000);
+
             for(int i = 0; i < PlayCount; i++)
             {
                 gameState.CurrentPlayer = FieldObject.PLAYER1;
