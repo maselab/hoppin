@@ -21,8 +21,21 @@ namespace hoppin.GameSystem.UI
             {4, 0, 0, 0, 3, 0, 0, 3 },
             {4, 4, 4, 4, 3, 3, 3, 3 }
         };
+        int[,] testBlockNum = new int[,]
+        {
+            {0, 0, 0, 0, 7, 0, 0, 0 },
+            {0, 0, 0, 0, 6, 0, 0, 0 },
+            {0, 0, 0, 0, 5, 0, 0, 0 },
+            {7, 6, 5, 1, 2, 0, 0, 0 },
+            {0, 0, 0, 4, 3, 5, 6, 7 },
+            {0, 0, 0, 5, 0, 0, 0, 0 },
+            {0, 0, 0, 6, 0, 0, 0, 0 },
+            {0, 0, 0, 7, 0, 0, 0, 0 },
+        };
+
 
         Style style = new Style();
+        FieldPanel fieldPanel = new FieldPanel();
         FieldBlock fieldBlock = new FieldBlock();
         public void drawBlankField(PaintEventArgs e) {
             e.Graphics.TranslateTransform(41, 41);
@@ -30,7 +43,14 @@ namespace hoppin.GameSystem.UI
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    fieldBlock.draw(e, j, i, (FieldColor)testFieldNum[i, j]);
+                    fieldBlock.draw(e, j, i, (FieldObject)testBlockNum[i, j]);
+                }
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    fieldPanel.draw(e, j, i, (FieldObject)testFieldNum[i, j]);
                 }
             }
             e.Graphics.ResetTransform();

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace hoppin.GameSystem
 {
-    enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
-    enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
-
+    public enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
+    public enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
 
     ///<summary>
     ///全ゲーム情報を保持する

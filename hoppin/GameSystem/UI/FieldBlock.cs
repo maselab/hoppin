@@ -9,59 +9,69 @@ using hoppin.GameSystem;
 
 namespace hoppin.GameSystem.UI
 {
-    public class FieldBlock
+    class FieldBlock
     {
         Style style = new Style();
-        public void draw(PaintEventArgs e, int x, int y, FieldColor fieldColor)
+        public void draw(PaintEventArgs e, int x, int y, FieldObject fieldObj)
         {
             e.Graphics.ResetTransform();
-            e.Graphics.TranslateTransform(42 * (x+1), 42 * (y+1));
-            drawBlockFrame(e);
-            if (fieldColor != FieldColor.BLANK)
+            e.Graphics.TranslateTransform(42 * (x + 1), 42 * (y + 1));
+            if (fieldObj != FieldObject.BLANK)
             {
                 SolidBrush blockColor;
-                switch (fieldColor)
+                switch (fieldObj)
                 {
-                    case FieldColor.PLAYER1:
+                    case FieldObject.PLAYER1:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
-                    case FieldColor.PLAYER2:
+                    case FieldObject.PLAYER2:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
-                    case FieldColor.PLAYER3:
+                    case FieldObject.PLAYER3:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
-                    case FieldColor.PLAYER4:
+                    case FieldObject.PLAYER4:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:
                         blockColor = new SolidBrush(style.separationColor);
                         break;
                 }
-                e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
-                e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
-                e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
-                e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
-                //switch (fieldColor)
-                //{
-                //    case fieldColor.ArrowB:
-                //    case fieldColor.ArrowL:
-                //    case fieldColor.ArrowR:
-                //    case fieldColor.ArrowT:
-                //        drawArrow(e, fieldColor);
-                //        break;
-                //    case fieldColor.Dash:
-                //        drawShoes(e);
-                //        break;
-                //    case fieldColor.PlayerA:
-                //    case fieldColor.PlayerB:
-                //    case fieldColor.PlayerC:
-                //    case fieldColor.PlayerD:
-                //    case fieldColor.Box:
-                //        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
-                //        break;
-                //    default: break;
-                //}
+                switch (fieldObj)
+                {
+                    case FieldObject.BOX:
+                    case FieldObject.BONUS:
+                    case FieldObject.SHOES:
+                        e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
+                        e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
+                        e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
+                        e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
+                        break;
+                    default: break;
+                }
+                switch (fieldObj)
+                {
+                    //case fieldObj.ArrowB:
+                    //case fieldObj.ArrowL:
+                    //case fieldObj.ArrowR:
+                    //case fieldObj.ArrowT:
+                    //    drawArrow(e, fieldObj);
+                    //    break;
+                    case FieldObject.SHOES:
+                        drawShoes(e);
+                        break;
+                    case FieldObject.BONUS:
+                        drawCross(e);
+                        break;
+                    case FieldObject.PLAYER1:
+                    case FieldObject.PLAYER2:
+                    case FieldObject.PLAYER3:
+                    case FieldObject.PLAYER4:
+                    case FieldObject.BOX:
+                        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
+                        break;
+                    default: break;
+                }
             }
             e.Graphics.ResetTransform();
         }
@@ -72,18 +82,37 @@ namespace hoppin.GameSystem.UI
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 23, 10, 8, 14);
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 24, 25, 6, 4);
         }
-        //void drawArrow(PaintEventArgs e, fieldColor fieldColor)
+        void drawCross(PaintEventArgs e)
+        {
+            e.Graphics.TranslateTransform(22, 22);
+            Point[] points = new Point[7] {
+                new Point(-1, 0),
+                new Point(-1, 7),
+                new Point(-6, 7),
+                new Point(0, 13),
+                new Point(6, 7),
+                new Point(1, 7),
+                new Point(1, 0),
+            };
+            for (int i = 0; i < 4; i++)
+            {
+                e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
+                e.Graphics.RotateTransform(90F);
+            }
+            e.Graphics.ResetTransform();
+        }
+        //void drawArrow(PaintEventArgs e, fieldObj fieldObj)
         //{
         //    e.Graphics.TranslateTransform(22, 22);
-        //    switch (fieldColor)
+        //    switch (fieldObj)
         //    {
-        //        case fieldColor.ArrowL:
+        //        case fieldObj.ArrowL:
         //            e.Graphics.RotateTransform(90F);
         //            break;
-        //        case fieldColor.ArrowT:
+        //        case fieldObj.ArrowT:
         //            e.Graphics.RotateTransform(180F);
         //            break;
-        //        case fieldColor.ArrowR:
+        //        case fieldObj.ArrowR:
         //            e.Graphics.RotateTransform(270F);
         //            break;
         //        default: break;
@@ -100,20 +129,5 @@ namespace hoppin.GameSystem.UI
         //    points[8] = new Point(2, -11);
         //    e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
         //}
-        void drawBlockFrame(PaintEventArgs e)
-        {
-            // left-top
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 2, 7);
-            // right-top
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 0, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 0, 2, 7);
-            // left-bottom
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 42, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 37, 2, 7);
-            // right-bottom
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 42, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 37, 2, 7);
-        }
     }
 }

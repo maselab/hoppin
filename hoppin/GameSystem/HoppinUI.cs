@@ -8,14 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using hoppin.GameSystem.UI;
+using hoppin.GameSystem;
+
 
 namespace hoppin
 {
     public partial class HoppinUI : Form
     {
+        private GameState gameState;
+
         public HoppinUI()
         {
             InitializeComponent();
+        }
+
+        private HoppinUI(GameState gameState)
+        {
+            InitializeComponent();
+            this.gameState = gameState;
         }
 
         private void HoppinUI_Load(object sender, EventArgs e)
