@@ -264,7 +264,7 @@ namespace hoppin.GameSystem
                 }
             }
 
-            gameState.FieldFloorColor[playerHeight, playerWidth] = (FieldColor)(gameState.CurrentPlayer);//移動先の色塗り替え
+            gameState.FieldFloorColor[playerHeight, playerWidth] = gameState.CurrentPlayer;//移動先の色塗り替え
             //↑ばぐりそう
             gameState.FieldState[playerHeight, playerWidth] = FieldObject.BLANK;//自分のいた位置をBLANKに
             gameState.FieldState[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動後を自分のマスに
@@ -284,7 +284,7 @@ namespace hoppin.GameSystem
             for (int i = 0; i < gameState.FieldHeight; i++)//変数を用意
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
-                    if (gameState.FieldFloorColor[i, j] == (FieldColor)(gameState.CurrentPlayer))
+                    if (gameState.FieldFloorColor[i, j] == gameState.CurrentPlayer)
                     {
                         workField[i, j] = 1;
                     }
@@ -309,7 +309,7 @@ namespace hoppin.GameSystem
                     if (workField[i, j] == -1)
                     {//-1の箇所が囲まれている領域
                         // getArea[i, j] = 1;
-                        gameState.FieldFloorColor[i, j] = (FieldColor)(gameState.CurrentPlayer);
+                        gameState.FieldFloorColor[i, j] = gameState.CurrentPlayer;
                     }
                 }
 
@@ -348,10 +348,10 @@ namespace hoppin.GameSystem
             for (int i = 0; i < gameState.FieldHeight; i++)
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
-                    if (gameState.FieldFloorColor[i, j] == (FieldColor)gameState.CurrentPlayer)
+                    if (gameState.FieldFloorColor[i, j] == gameState.CurrentPlayer)
                     {
                         score++;
-                        gameState.FieldFloorColor[i, j] = FieldColor.BLANK;
+                        gameState.FieldFloorColor[i, j] = FieldObject.BLANK;
                     }
                 }
 

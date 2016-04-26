@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace hoppin.GameSystem
 {
     [Serializable()]
-    class PlayerData
+    public class PlayerData
     {
         private int shoes;
         private int score;

@@ -5,69 +5,69 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using hoppin.GameSystem;
 
 namespace hoppin.GameSystem.UI
 {
-    public enum BlockType
-    {
-        Blank,
-        PaintedA, PaintedB, PaintedC, PaintedD,  
-        PlayerA, PlayerB, PlayerC, PlayerD,
-        ArrowT, ArrowR, ArrowB, ArrowL,
-        Dash
-    }
-    public class FieldBlock
+    class FieldBlock
     {
         Style style = new Style();
-        public void draw(PaintEventArgs e, int x, int y, BlockType blockType)
+        public void draw(PaintEventArgs e, int x, int y, FieldObject fieldObj)
         {
             e.Graphics.ResetTransform();
-            e.Graphics.TranslateTransform(42 * (x+1), 42 * (y+1));
-            drawBlockFrame(e);
-            if (blockType != BlockType.Blank)
+            e.Graphics.TranslateTransform(42 * (x + 1), 42 * (y + 1));
+            if (fieldObj != FieldObject.BLANK)
             {
                 SolidBrush blockColor;
-                switch (blockType)
+                switch (fieldObj)
                 {
-                    case BlockType.PlayerA:
-                    case BlockType.PaintedA:
+                    case FieldObject.PLAYER1:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
-                    case BlockType.PlayerB:
-                    case BlockType.PaintedB:
+                    case FieldObject.PLAYER2:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
-                    case BlockType.PlayerC:
-                    case BlockType.PaintedC:
+                    case FieldObject.PLAYER3:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
-                    case BlockType.PlayerD:
-                    case BlockType.PaintedD:
+                    case FieldObject.PLAYER4:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:
                         blockColor = new SolidBrush(style.separationColor);
                         break;
                 }
-                e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
-                e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
-                e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
-                e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
-                switch (blockType)
+                switch (fieldObj)
                 {
-                    case BlockType.ArrowB:
-                    case BlockType.ArrowL:
-                    case BlockType.ArrowR:
-                    case BlockType.ArrowT:
-                        drawArrow(e, blockType);
+                    case FieldObject.BOX:
+                    case FieldObject.BONUS:
+                    case FieldObject.SHOES:
+                        e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
+                        e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
+                        e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
+                        e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
                         break;
-                    case BlockType.Dash:
+                    default: break;
+                }
+                switch (fieldObj)
+                {
+                    //case fieldObj.ArrowB:
+                    //case fieldObj.ArrowL:
+                    //case fieldObj.ArrowR:
+                    //case fieldObj.ArrowT:
+                    //    drawArrow(e, fieldObj);
+                    //    break;
+                    case FieldObject.SHOES:
                         drawShoes(e);
                         break;
-                    case BlockType.PlayerA:
-                    case BlockType.PlayerB:
-                    case BlockType.PlayerC:
-                    case BlockType.PlayerD:
+                    case FieldObject.BONUS:
+                        drawCross(e);
+                        break;
+                    case FieldObject.PLAYER1:
+                    case FieldObject.PLAYER2:
+                    case FieldObject.PLAYER3:
+                    case FieldObject.PLAYER4:
+                    case FieldObject.BOX:
                         e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
                         break;
                     default: break;
@@ -82,48 +82,52 @@ namespace hoppin.GameSystem.UI
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 23, 10, 8, 14);
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 24, 25, 6, 4);
         }
-        void drawArrow(PaintEventArgs e, BlockType blockType)
+        void drawCross(PaintEventArgs e)
         {
             e.Graphics.TranslateTransform(22, 22);
-            switch (blockType)
+            Point[] points = new Point[7] {
+                new Point(-1, 0),
+                new Point(-1, 7),
+                new Point(-6, 7),
+                new Point(0, 13),
+                new Point(6, 7),
+                new Point(1, 7),
+                new Point(1, 0),
+            };
+            for (int i = 0; i < 4; i++)
             {
-                case BlockType.ArrowL:
-                    e.Graphics.RotateTransform(90F);
-                    break;
-                case BlockType.ArrowT:
-                    e.Graphics.RotateTransform(180F);
-                    break;
-                case BlockType.ArrowR:
-                    e.Graphics.RotateTransform(270F);
-                    break;
-                default: break;
+                e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
+                e.Graphics.RotateTransform(90F);
             }
-            Point[] points = new Point[9];
-            points[0] = new Point(-2, -11);
-            points[1] = new Point(-2, 2);
-            points[2] = new Point(-9, -5);
-            points[3] = new Point(-9, 2);
-            points[4] = new Point(0, 11);
-            points[5] = new Point(9, 2);
-            points[6] = new Point(9, -5);
-            points[7] = new Point(2, 2);
-            points[8] = new Point(2, -11);
-            e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
+            e.Graphics.ResetTransform();
         }
-        void drawBlockFrame(PaintEventArgs e)
-        {
-            // left-top
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 2, 7);
-            // right-top
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 0, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 0, 2, 7);
-            // left-bottom
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 42, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 37, 2, 7);
-            // right-bottom
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 42, 7, 2);
-            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 37, 2, 7);
-        }
+        //void drawArrow(PaintEventArgs e, fieldObj fieldObj)
+        //{
+        //    e.Graphics.TranslateTransform(22, 22);
+        //    switch (fieldObj)
+        //    {
+        //        case fieldObj.ArrowL:
+        //            e.Graphics.RotateTransform(90F);
+        //            break;
+        //        case fieldObj.ArrowT:
+        //            e.Graphics.RotateTransform(180F);
+        //            break;
+        //        case fieldObj.ArrowR:
+        //            e.Graphics.RotateTransform(270F);
+        //            break;
+        //        default: break;
+        //    }
+        //    Point[] points = new Point[9];
+        //    points[0] = new Point(-2, -11);
+        //    points[1] = new Point(-2, 2);
+        //    points[2] = new Point(-9, -5);
+        //    points[3] = new Point(-9, 2);
+        //    points[4] = new Point(0, 11);
+        //    points[5] = new Point(9, 2);
+        //    points[6] = new Point(9, -5);
+        //    points[7] = new Point(2, 2);
+        //    points[8] = new Point(2, -11);
+        //    e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
+        //}
     }
 }

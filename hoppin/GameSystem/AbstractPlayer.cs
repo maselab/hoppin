@@ -9,7 +9,7 @@ using hoppin.GameSystem;
 namespace hoppin
 {
     [Serializable()]
-    abstract class AbstractPlayer
+    public abstract class AbstractPlayer
     {
         protected string name;
         private GameState gameState;
@@ -41,7 +41,7 @@ namespace hoppin
             return gameState.FieldState;
         }
 
-        public FieldColor[,] GetFieldFloorColor()
+        public FieldObject[,] GetFieldFloorColor()
         {
             return gameState.FieldFloorColor;
         }

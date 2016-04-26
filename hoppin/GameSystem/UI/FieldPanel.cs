@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing;
+using hoppin.GameSystem;
+
+namespace hoppin.GameSystem.UI
+{
+    public class FieldPanel
+    {
+        Style style = new Style();
+        public void draw(PaintEventArgs e, int x, int y, FieldObject fieldObj)
+        {
+            e.Graphics.ResetTransform();
+            e.Graphics.TranslateTransform(42 * (x+1), 42 * (y+1));
+            drawBlockFrame(e);
+            if (fieldObj != FieldObject.BLANK)
+            {
+                SolidBrush blockColor;
+                switch (fieldObj)
+                {
+                    case FieldObject.PLAYER1:
+                        blockColor = new SolidBrush(style.playerAColor);
+                        break;
+                    case FieldObject.PLAYER2:
+                        blockColor = new SolidBrush(style.playerBColor);
+                        break;
+                    case FieldObject.PLAYER3:
+                        blockColor = new SolidBrush(style.playerCColor);
+                        break;
+                    case FieldObject.PLAYER4:
+                        blockColor = new SolidBrush(style.playerDColor);
+                        break;
+                    default:
+                        blockColor = new SolidBrush(style.separationColor);
+                        break;
+                }
+                e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
+                e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
+                e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
+                e.Graphics.FillRectangle(blockColor, 37, 4, 3, 36);
+            }
+            e.Graphics.ResetTransform();
+        }
+        void drawBlockFrame(PaintEventArgs e)
+        {
+            // left-top
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 7, 2);
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 0, 2, 7);
+            // right-top
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 0, 7, 2);
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 0, 2, 7);
+            // left-bottom
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 42, 7, 2);
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 0, 37, 2, 7);
+            // right-bottom
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 37, 42, 7, 2);
+            e.Graphics.FillRectangle(new SolidBrush(style.separationColor), 42, 37, 2, 7);
+        }
+    }
+}

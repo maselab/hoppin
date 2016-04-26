@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace hoppin.GameSystem
 {
     [Serializable()]
-    class Position
+    public class Position
     {
         public int x;
         public int y;
