@@ -22,10 +22,10 @@ namespace hoppin.GameSystem.UI
         public Color scoreInactiveColor = Color.FromArgb(127, 255, 255, 255);
         public Color scoreColor = Color.White;
 
-        public Color playerAColor = Color.FromArgb(255, 0, 146, 80);
-        public Color playerBColor = Color.FromArgb(255, 237, 173, 11);
-        public Color playerCColor = Color.FromArgb(255, 191, 30, 86);
-        public Color playerDColor = Color.FromArgb(255, 0, 134, 171);
+        public Color playerAColor = Color.FromArgb(255, 191, 30, 86);
+        public Color playerBColor = Color.FromArgb(255, 0, 134, 171);
+        public Color playerCColor = Color.FromArgb(255, 237, 173, 11);
+        public Color playerDColor = Color.FromArgb(255, 0, 146, 80);
 
     
     }
