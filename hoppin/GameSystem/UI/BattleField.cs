@@ -10,6 +10,11 @@ namespace hoppin.GameSystem.UI
 {
     class BattleField
     {
+        private GameState gameState;
+        public BattleField(GameState gameState)
+        {
+            this.gameState = gameState;
+        }
         int[,] testFieldNum = new int[,]
         {
             {1, 1, 1, 1, 2, 2, 2, 2 },
@@ -37,20 +42,27 @@ namespace hoppin.GameSystem.UI
         Style style = new Style();
         FieldPanel fieldPanel = new FieldPanel();
         FieldBlock fieldBlock = new FieldBlock();
+
+        FieldObject[,] fieldPanelMatrix = new FieldObject[8, 8];
+        FieldObject[,] fieldObjectMatrix = new FieldObject[8, 8];
+
         public void drawBlankField(PaintEventArgs e) {
             e.Graphics.TranslateTransform(41, 41);
+            fieldPanelMatrix = gameState.FieldFloorColor;
+            fieldObjectMatrix = gameState.FieldState;
+            Console.WriteLine(">>>>>>>>>>" + gameState.FieldState[0, 0]);
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    fieldBlock.draw(e, j, i, (FieldObject)testBlockNum[i, j]);
+                    fieldBlock.draw(e, j, i, fieldObjectMatrix[i, j]);
                 }
             }
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    fieldPanel.draw(e, j, i, (FieldObject)testFieldNum[i, j]);
+                    fieldPanel.draw(e, j, i, fieldPanelMatrix[i, j]);
                 }
             }
             e.Graphics.ResetTransform();
