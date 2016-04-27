@@ -37,13 +37,16 @@ namespace hoppin
         }
 
         /// <summary>
-        /// 
+        /// プレイヤーの名前を取得する
         /// </summary>
         public string Name
         {
             get { return this.name; }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameState"></param>
         public void SetGameState(GameState gameState)
         {
             this.gameState = CopyUtility.DeepCopy<GameState>(gameState);

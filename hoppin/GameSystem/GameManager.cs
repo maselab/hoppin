@@ -21,10 +21,10 @@ namespace hoppin.GameSystem
 
         public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount, int fps)
         {
-            playerList.Add(FieldObject.PLAYER1, player1);
-            playerList.Add(FieldObject.PLAYER2, player2);
-            playerList.Add(FieldObject.PLAYER3, player3);
-            playerList.Add(FieldObject.PLAYER4, player4);
+            playerList.Add(FieldObject.PlayerA, player1);
+            playerList.Add(FieldObject.PlayerB, player2);
+            playerList.Add(FieldObject.PlayerC, player3);
+            playerList.Add(FieldObject.PlayerD, player4);
             gameState = new NewGameState(GetPlayerName(),playCount);
             this.processFPS = fps;
         }
@@ -57,22 +57,22 @@ namespace hoppin.GameSystem
             for(int i = 0; i < gameState.MaxTurn; i++)
             {
                 gameState.TurnNum++;
-                gameState.CurrentPlayer = FieldObject.PLAYER1;
+                gameState.CurrentPlayer = FieldObject.PlayerA;
                 GenerateItems();
                 ProcessTurn();
                 if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
-                gameState.CurrentPlayer = FieldObject.PLAYER2;
+                gameState.CurrentPlayer = FieldObject.PlayerB;
                 GenerateItems();
                 ProcessTurn();
                 if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
-                gameState.CurrentPlayer = FieldObject.PLAYER3;
+                gameState.CurrentPlayer = FieldObject.PlayerC;
                 GenerateItems();
                 ProcessTurn();
                 if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
-                gameState.CurrentPlayer = FieldObject.PLAYER4;
+                gameState.CurrentPlayer = FieldObject.PlayerD;
                 GenerateItems();
                 ProcessTurn();
                 if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
@@ -188,27 +188,27 @@ namespace hoppin.GameSystem
             if(IsBump())
             {
                 Position destination = GetPlayerDestination();
-                if (IsGetItems() == FieldObject.BONUS)//アイテム1
+                if (IsGetItems() == FieldObject.Bonus)//アイテム1
                 {
                     Repaint();
                     GetBonus(destination);
                     gameState.bonusPositionList.RemoveAll(s => s.IsSamePosition(destination));
                     SearchClosedSpace();
                 }
-                else if (IsGetItems() == FieldObject.BOX)//アイテム2
+                else if (IsGetItems() == FieldObject.Box)//アイテム2
                 {
                     Repaint();
                     //BOX();
                     AddScore();
                     gameState.boxPositionList.RemoveAll(s => s.IsSamePosition(destination));
                 }
-                else if (IsGetItems() == FieldObject.SHOES)//アイテム3
+                else if (IsGetItems() == FieldObject.Shoes)//アイテム3
                 {
                     Repaint();
                     gameState.CurrentPlayerData.Shoes = gameState.ShoesTurn;
                     gameState.shoesPositionList.RemoveAll(s =>s.IsSamePosition(destination));
                 }
-                else if (IsGetItems() == FieldObject.BLANK)
+                else if (IsGetItems() == FieldObject.Blank)
                 {
                     Repaint();
                 }
@@ -223,29 +223,29 @@ namespace hoppin.GameSystem
             int playerHeight = gameState.playerDataList[gameState.CurrentPlayer].PositionY;
             int playerWidth = gameState.playerDataList[gameState.CurrentPlayer].PositionX;
 
-            if (gameState.CurrentPlayerMove == PlayerMove.UP && playerHeight == 0 ||
-                gameState.CurrentPlayerMove == PlayerMove.DOWN && playerHeight == 7 ||
-                gameState.CurrentPlayerMove == PlayerMove.RIGHT && playerWidth == 7 ||
-                gameState.CurrentPlayerMove == PlayerMove.LEFT && playerWidth == 0
+            if (gameState.CurrentPlayerMove == PlayerMove.Up && playerHeight == 0 ||
+                gameState.CurrentPlayerMove == PlayerMove.Down && playerHeight == 7 ||
+                gameState.CurrentPlayerMove == PlayerMove.Right && playerWidth == 7 ||
+                gameState.CurrentPlayerMove == PlayerMove.Left && playerWidth == 0
               )
             {
                //Debug.Write("壁");
                 return false;
             }
             int height = 0; int width = 0;
-            if (gameState.CurrentPlayerMove == PlayerMove.UP)
+            if (gameState.CurrentPlayerMove == PlayerMove.Up)
                 height = -1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.DOWN)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Down)
                 height = 1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.RIGHT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Right)
                 width = +1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.LEFT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Left)
                 width = -1;
 
-            if ( gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.BLANK ||
-                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.BONUS ||
-                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.BOX   ||
-                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.SHOES 
+            if ( gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.Blank ||
+                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.Bonus ||
+                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.Box   ||
+                 gameState.FieldState[playerHeight + height, playerWidth + width] == FieldObject.Shoes 
                 )//移動ok
             {
                 //Debug.Write("人");
@@ -268,13 +268,13 @@ namespace hoppin.GameSystem
         private Position GetPlayerDestination()
         {
             int height = 0; int width = 0;
-            if (gameState.CurrentPlayerMove == PlayerMove.UP)
+            if (gameState.CurrentPlayerMove == PlayerMove.Up)
                 height = -1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.DOWN)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Down)
                 height = 1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.RIGHT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Right)
                 width = +1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.LEFT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Left)
                 width = -1;
 
             return new Position(gameState.CurrentPlayerData.PositionX + width, gameState.CurrentPlayerData.PositionY + height);
@@ -285,13 +285,13 @@ namespace hoppin.GameSystem
             int playerWidth = gameState.CurrentPlayerData.PositionX;
 
             int height = 0; int width = 0;
-            if (gameState.CurrentPlayerMove == PlayerMove.UP)
+            if (gameState.CurrentPlayerMove == PlayerMove.Up)
                 height = -1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.DOWN)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Down)
                 height = 1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.RIGHT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Right)
                 width = +1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.LEFT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Left)
                 width = -1;
 
             return gameState.FieldState[playerHeight + height, playerWidth + width];
@@ -310,8 +310,8 @@ namespace hoppin.GameSystem
             int boxNum = gameState.boxPositionList.Count;//盤面の箱数
 
             const int MAXIETMNUM = 4;//アイテム全体の上限
-            const int ONEBOXGENERATIONPROBABILITY = 15;
-            const int TWOBOXGENERATIONPROBABILITY = 15;
+            const int ONEBOXGENERATIONPROBABILITY = 20;
+            const int TWOBOXGENERATIONPROBABILITY = 10;
             const int ITEMGENERATIONPROBABILITY = 5; //アイテムの発生確率(0~100)
 
             Random rnd = new Random(seed++);
@@ -329,9 +329,9 @@ namespace hoppin.GameSystem
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);
-                if (gameState.FieldState[randomY, randomX] == FieldObject.BLANK)
+                if (gameState.FieldState[randomY, randomX] == FieldObject.Blank)
                 {
-                    gameState.FieldState[randomY, randomX] = FieldObject.BOX;
+                    gameState.FieldState[randomY, randomX] = FieldObject.Box;
                     gameState.boxPositionList.Add(new Position(randomX, randomY));
                 }
             }
@@ -339,9 +339,9 @@ namespace hoppin.GameSystem
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);
-                if (gameState.FieldState[randomY, randomX] == FieldObject.BLANK)
+                if (gameState.FieldState[randomY, randomX] == FieldObject.Blank)
                 {
-                    gameState.FieldState[randomY, randomX] = FieldObject.BOX;
+                    gameState.FieldState[randomY, randomX] = FieldObject.Box;
                     gameState.boxPositionList.Add(new Position(randomX, randomY));
                 }
             }
@@ -353,17 +353,17 @@ namespace hoppin.GameSystem
 
                 if(rnd.Next(2) == 0)
                 {
-                    if (gameState.FieldState[randomY, randomX] == FieldObject.BLANK)
+                    if (gameState.FieldState[randomY, randomX] == FieldObject.Blank)
                     {
-                        gameState.FieldState[randomY, randomX] = FieldObject.BONUS;
+                        gameState.FieldState[randomY, randomX] = FieldObject.Bonus;
                         gameState.bonusPositionList.Add(new Position(randomX, randomY));
                     }
                 }
                 else
                 {
-                    if (gameState.FieldState[randomY, randomX] == FieldObject.BLANK)
+                    if (gameState.FieldState[randomY, randomX] == FieldObject.Blank)
                     {
-                        gameState.FieldState[randomY, randomX] = FieldObject.SHOES;
+                        gameState.FieldState[randomY, randomX] = FieldObject.Shoes;
                         gameState.shoesPositionList.Add(new Position(randomX, randomY));
                     }
                 }
@@ -385,17 +385,17 @@ namespace hoppin.GameSystem
             int playerWidth = gameState.CurrentPlayerData.PositionX;
 
             int height = 0; int width = 0;
-            if (gameState.CurrentPlayerMove == PlayerMove.UP)
+            if (gameState.CurrentPlayerMove == PlayerMove.Up)
                 height = -1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.DOWN)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Down)
                 height = 1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.RIGHT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Right)
                 width = +1;
-            else if (gameState.CurrentPlayerMove == PlayerMove.LEFT)
+            else if (gameState.CurrentPlayerMove == PlayerMove.Left)
                 width = -1;
 
             gameState.FieldFloorColor[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動先の色塗り替え
-            gameState.FieldState[playerHeight, playerWidth] = FieldObject.BLANK;//自分のいた位置をBLANKに
+            gameState.FieldState[playerHeight, playerWidth] = FieldObject.Blank;//自分のいた位置をBLANKに
             gameState.FieldState[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動後を自分のマスに
             gameState.CurrentPlayerData.PositionY = playerHeight + height;
             gameState.CurrentPlayerData.PositionX = playerWidth + width;
@@ -447,8 +447,8 @@ namespace hoppin.GameSystem
                     }
                 }
 
-            gameState.CurrentPlayerData.Score += enclosedFieldNum * 2;
-            if(enclosedFieldNum != 0) Debug.WriteLine("getBONUSPOINT!");
+            if(enclosedFieldNum != 0)
+            gameState.CurrentPlayerData.Score += ((enclosedFieldNum * enclosedFieldNum) + (3 * enclosedFieldNum) + 2) / 2;
         }
         private int[,] Fill(int[,] field, int i, int j)
         { //塗りつぶしをする再帰関数
@@ -487,7 +487,7 @@ namespace hoppin.GameSystem
                     if (gameState.FieldFloorColor[i, j] == gameState.CurrentPlayer)
                     {
                         score++;
-                        gameState.FieldFloorColor[i, j] = FieldObject.BLANK;
+                        gameState.FieldFloorColor[i, j] = FieldObject.Blank;
                     }
                 }
 
@@ -511,32 +511,32 @@ namespace hoppin.GameSystem
                     {
                         if(y == 0 && x == 0)
                         {
-                            this.FieldState[y, x] = FieldObject.PLAYER1;
-                            this.FieldFloorColor[y, x] = FieldObject.PLAYER1;
-                            playerDataList.Add(FieldObject.PLAYER1, new PlayerData(x, y));
+                            this.FieldState[y, x] = FieldObject.PlayerA;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerA;
+                            playerDataList.Add(FieldObject.PlayerA, new PlayerData(x, y));
                         }
                         else if(y == FieldHeight - 1 && x == 0)
                         {
-                            this.FieldState[y, x] = FieldObject.PLAYER2;
-                            this.FieldFloorColor[y, x] = FieldObject.PLAYER2;
-                            playerDataList.Add(FieldObject.PLAYER2, new PlayerData(x, y));
+                            this.FieldState[y, x] = FieldObject.PlayerB;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerB;
+                            playerDataList.Add(FieldObject.PlayerB, new PlayerData(x, y));
                         }
                         else if(y == FieldHeight - 1 && x == FieldWidth - 1)
                         {
-                            this.FieldState[y,x] = FieldObject.PLAYER3;
-                            this.FieldFloorColor[y,x] = FieldObject.PLAYER3;
-                            playerDataList.Add(FieldObject.PLAYER3, new PlayerData(x, y));
+                            this.FieldState[y,x] = FieldObject.PlayerC;
+                            this.FieldFloorColor[y,x] = FieldObject.PlayerC;
+                            playerDataList.Add(FieldObject.PlayerC, new PlayerData(x, y));
                         }
                         else if(y == 0 && x == FieldWidth - 1)
                         {
-                            this.FieldState[y, x] = FieldObject.PLAYER4;
-                            this.FieldFloorColor[y, x] = FieldObject.PLAYER4;
-                            playerDataList.Add(FieldObject.PLAYER4, new PlayerData(x, y));
+                            this.FieldState[y, x] = FieldObject.PlayerD;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerD;
+                            playerDataList.Add(FieldObject.PlayerD, new PlayerData(x, y));
                         }
                         else
                         {
-                            this.FieldState[y, x] = FieldObject.BLANK;
-                            this.FieldFloorColor[y, x] = FieldObject.BLANK;
+                            this.FieldState[y, x] = FieldObject.Blank;
+                            this.FieldFloorColor[y, x] = FieldObject.Blank;
                         }
                     }
                 }

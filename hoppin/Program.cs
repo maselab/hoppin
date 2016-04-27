@@ -37,7 +37,7 @@ namespace hoppin
             //playerList.Add(new SamplePlayer());
 
             GameManager gameManager = new GameManager
-                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,20);
+                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,100);
             Application.Run(new HoppinUI(gameManager));
             
 

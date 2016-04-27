@@ -16,21 +16,21 @@ namespace hoppin.GameSystem.UI
         {
             e.Graphics.ResetTransform();
             e.Graphics.TranslateTransform(42 * (x + 1), 42 * (y + 1));
-            if (fieldObj != FieldObject.BLANK)
+            if (fieldObj != FieldObject.Blank)
             {
                 SolidBrush blockColor;
                 switch (fieldObj)
                 {
-                    case FieldObject.PLAYER1:
+                    case FieldObject.PlayerA:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
-                    case FieldObject.PLAYER2:
+                    case FieldObject.PlayerB:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
-                    case FieldObject.PLAYER3:
+                    case FieldObject.PlayerC:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
-                    case FieldObject.PLAYER4:
+                    case FieldObject.PlayerD:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:
@@ -39,9 +39,9 @@ namespace hoppin.GameSystem.UI
                 }
                 switch (fieldObj)
                 {
-                    case FieldObject.BOX:
-                    case FieldObject.BONUS:
-                    case FieldObject.SHOES:
+                    case FieldObject.Box:
+                    case FieldObject.Bonus:
+                    case FieldObject.Shoes:
                         e.Graphics.FillRectangle(blockColor, 4, 4, 3, 36);
                         e.Graphics.FillRectangle(blockColor, 4, 4, 36, 3);
                         e.Graphics.FillRectangle(blockColor, 4, 37, 36, 3);
@@ -51,20 +51,20 @@ namespace hoppin.GameSystem.UI
                 }
                 switch (fieldObj)
                 {
-                    case FieldObject.SHOES:
+                    case FieldObject.Shoes:
                         drawShoes(e);
                         break;
-                    case FieldObject.BONUS:
+                    case FieldObject.Bonus:
                         drawCross(e);
                         break;
-                    case FieldObject.BOX:
+                    case FieldObject.Box:
                         e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
                         drawExMark(e);
                         break;
-                    case FieldObject.PLAYER1:
-                    case FieldObject.PLAYER2:
-                    case FieldObject.PLAYER3:
-                    case FieldObject.PLAYER4:
+                    case FieldObject.PlayerA:
+                    case FieldObject.PlayerB:
+                    case FieldObject.PlayerC:
+                    case FieldObject.PlayerD:
                         e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
                         break;
                     default: break;

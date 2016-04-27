@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace hoppin.GameSystem
 {
-    public enum PlayerMove : int { UP,DOWN,LEFT,RIGHT };
-    public enum FieldObject : int { BLANK,PLAYER1,PLAYER2,PLAYER3,PLAYER4,SHOES,BONUS,BOX};
+    public enum PlayerMove : int { Up,Down,Left,Right };
+    public enum FieldObject : int { Blank,PlayerA,PlayerB,PlayerC,PlayerD,Shoes,Bonus,Box};
 
 
     ///<summary>
@@ -93,10 +93,10 @@ namespace hoppin.GameSystem
         public List<int> GetPlayerScore()
         {
             List<int> retList = new List<int>();
-            retList.Add(playerDataList[FieldObject.PLAYER1].Score);
-            retList.Add(playerDataList[FieldObject.PLAYER2].Score);
-            retList.Add(playerDataList[FieldObject.PLAYER3].Score);
-            retList.Add(playerDataList[FieldObject.PLAYER4].Score);
+            retList.Add(playerDataList[FieldObject.PlayerA].Score);
+            retList.Add(playerDataList[FieldObject.PlayerB].Score);
+            retList.Add(playerDataList[FieldObject.PlayerC].Score);
+            retList.Add(playerDataList[FieldObject.PlayerD].Score);
             return retList;
         }
 
