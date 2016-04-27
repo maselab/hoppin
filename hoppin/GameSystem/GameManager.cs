@@ -408,10 +408,10 @@ namespace hoppin.GameSystem
             for (int i = 0; i < gameState.FieldHeight; i++)//塗りつぶし作業
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
-                    if (i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    if ((i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    && workField[i, j] == -1)
                     {
                         workField = Fill(workField, i, j);
-
                     }
                 }
 
@@ -433,22 +433,26 @@ namespace hoppin.GameSystem
         private int[,] Fill(int[,] field, int x, int y)
         { //塗りつぶしをする再帰関数
 
-            if (y > 0 && field[x, y - 1] == -1)
+            if (y > 0 && field[x, y - 1] == -1
+                && field[x, y - 1] == -1)
             {
                 field[x, y - 1] = 0;
                 Fill(field, x, y - 1);
             }
-            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1)
+            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1
+                && field[x + 1, y] == -1)
             { /* 右 */
                 field[x + 1, y] = 0;
                 Fill(field, x + 1, y);
             }
-            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1)
+            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1
+                && field[x, y + 1] == -1)
             {/* 下 */
                 field[x, y + 1] = 0;
                 Fill(field, x, y + 1);
             }
-            if (x > 0 && field[x - 1, y] == -1)
+            if (x > 0 && field[x - 1, y] == -1
+                && field[x - 1, y] == -1)
             { /* 左 */
                 field[x - 1, y] = 0;
                 Fill(field, x - 1, y);
