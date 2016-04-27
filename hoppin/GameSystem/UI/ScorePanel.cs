@@ -31,7 +31,7 @@ namespace hoppin.GameSystem.UI
         public void draw(PaintEventArgs e)
         {
             e.Graphics.FillRectangle(new SolidBrush(panelColor), 0, 0, 210, 82);
-            e.Graphics.FillRectangle(new SolidBrush(style.scoreInactiveColor), (stdscore > 0)?(int)((stdscore / 100.0) * 210):0, 0, (stdscore > 0)?220:0, 82);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(63, 255, 255, 255)), (stdscore > 0)?(int)((stdscore / 100.0) * 210):0, 0, (stdscore > 0)?220:0, 82);
             //e.Graphics.FillRectangle(new SolidBrush(Color.Aqua), 0, 0, 82, 82);
             SolidBrush idColor = new SolidBrush((active) ?style.scoreColor:style.scoreInactiveColor);
             e.Graphics.DrawString(playerID, new Font("Impact", 60), idColor, new PointF(-3, -8));

@@ -101,33 +101,5 @@ namespace hoppin.GameSystem.UI
             }
             e.Graphics.ResetTransform();
         }
-        //void drawArrow(PaintEventArgs e, fieldObj fieldObj)
-        //{
-        //    e.Graphics.TranslateTransform(22, 22);
-        //    switch (fieldObj)
-        //    {
-        //        case fieldObj.ArrowL:
-        //            e.Graphics.RotateTransform(90F);
-        //            break;
-        //        case fieldObj.ArrowT:
-        //            e.Graphics.RotateTransform(180F);
-        //            break;
-        //        case fieldObj.ArrowR:
-        //            e.Graphics.RotateTransform(270F);
-        //            break;
-        //        default: break;
-        //    }
-        //    Point[] points = new Point[9];
-        //    points[0] = new Point(-2, -11);
-        //    points[1] = new Point(-2, 2);
-        //    points[2] = new Point(-9, -5);
-        //    points[3] = new Point(-9, 2);
-        //    points[4] = new Point(0, 11);
-        //    points[5] = new Point(9, 2);
-        //    points[6] = new Point(9, -5);
-        //    points[7] = new Point(2, 2);
-        //    points[8] = new Point(2, -11);
-        //    e.Graphics.FillPolygon(new SolidBrush(style.separationColor), points);
-        //}
     }
 }
