@@ -51,23 +51,20 @@ namespace hoppin.GameSystem.UI
                 }
                 switch (fieldObj)
                 {
-                    //case fieldObj.ArrowB:
-                    //case fieldObj.ArrowL:
-                    //case fieldObj.ArrowR:
-                    //case fieldObj.ArrowT:
-                    //    drawArrow(e, fieldObj);
-                    //    break;
                     case FieldObject.SHOES:
                         drawShoes(e);
                         break;
                     case FieldObject.BONUS:
                         drawCross(e);
                         break;
+                    case FieldObject.BOX:
+                        e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
+                        drawExMark(e);
+                        break;
                     case FieldObject.PLAYER1:
                     case FieldObject.PLAYER2:
                     case FieldObject.PLAYER3:
                     case FieldObject.PLAYER4:
-                    case FieldObject.BOX:
                         e.Graphics.FillRectangle(blockColor, 9, 9, 26, 26);
                         break;
                     default: break;
@@ -81,6 +78,20 @@ namespace hoppin.GameSystem.UI
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 14, 30, 6, 4);
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 23, 10, 8, 14);
             e.Graphics.FillEllipse(new SolidBrush(style.separationColor), 24, 25, 6, 4);
+        }
+        void drawExMark(PaintEventArgs e)
+        {
+            Point[] points = new Point[6]
+            {
+                new Point(20, 13),
+                new Point(24, 13),
+                new Point(24, 18),
+                new Point(23, 26),
+                new Point(21, 26),
+                new Point(20, 19),
+            };
+            e.Graphics.FillPolygon(new SolidBrush(style.backgroundColor), points);
+            e.Graphics.FillRectangle(new SolidBrush(style.backgroundColor), 20, 28, 4, 4);
         }
         void drawCross(PaintEventArgs e)
         {
