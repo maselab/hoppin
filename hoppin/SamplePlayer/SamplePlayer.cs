@@ -27,30 +27,27 @@ namespace hoppin
         }
 
         //※This player don't think floorColor!
+        //BOXに向かって一直線に走ります
         override public PlayerMove GetMove()
         {
             fieldState = GetFieldState();
 
             myData = GetMyData();
-            System.Diagnostics.Debug.WriteLine(myData.PositionX + " , " + myData.PositionY);
             boxList = GetBoxPositionList();
 
-            int nearestBoxDistance = 100;//ありえない遠さpriceless
+            int nearestBoxDistance = 100;//ありえない遠さを初期値とする
             Position nearestBoxPosition = null;
 
             //Search nearest box position
             foreach(Position position in boxList)
             {
-
                 int boxDistance = Math.Abs(position.x - myData.PositionX) + Math.Abs(position.y - myData.PositionY);
                 if( boxDistance < nearestBoxDistance)
                 {
                     nearestBoxPosition = position;
+                    nearestBoxDistance = boxDistance;
                 }
             }
-
-            if(nearestBoxPosition != null)
-            System.Diagnostics.Debug.WriteLine("box:" + nearestBoxPosition.x + " " + nearestBoxPosition.y);
 
             //箱がないと適当に動く
             if (nearestBoxPosition == null)
@@ -58,7 +55,7 @@ namespace hoppin
                 if (IsMovable(PlayerMove.UP)) return PlayerMove.UP;
                 if (IsMovable(PlayerMove.DOWN)) return PlayerMove.DOWN;
                 if (IsMovable(PlayerMove.LEFT)) return PlayerMove.LEFT;
-                else return PlayerMove.RIGHT;
+                return PlayerMove.RIGHT;
             }
 
             if (myData.PositionX < nearestBoxPosition.x)
