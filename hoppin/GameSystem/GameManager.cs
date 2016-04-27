@@ -12,11 +12,8 @@ namespace hoppin.GameSystem
     {
         public NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
-<<<<<<< HEAD
         public int PlayCount = 1000;
-=======
         private int processFPS;
->>>>>>> hashiguchi_ver2
 
         private delegate PlayerMove MoveDelegate();
 
@@ -41,15 +38,12 @@ namespace hoppin.GameSystem
             return retList;
         }
 
-<<<<<<< HEAD
         public int GetPlayCount()
         {
             return PlayCount;
         } 
 
-=======
         #region ゲーム進行
->>>>>>> hashiguchi_ver2
         public void ProcessGame()
         {
             ///N回まわしたら終了
