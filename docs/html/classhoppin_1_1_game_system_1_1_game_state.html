@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>hoppin: hoppin.GameSystem.GameState Class Reference</title>
+<title>Procon 2016: hoppin.GameSystem.GameState Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="icon.ico"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">hoppin
+   <div id="projectname">Procon 2016
    </div>
+   <div id="projectbrief">Procon 2016 の関数マニュアル</div>
   </td>
  </tr>
  </tbody>
@@ -38,7 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -87,6 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="classhoppin_1_1_game_system_1_1_game_state-members.html">List of all members</a>  </div>
@@ -94,15 +98,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">hoppin.GameSystem.GameState Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for hoppin.GameSystem.GameState:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classhoppin_1_1_game_system_1_1_game_state.png" usemap="#hoppin.GameSystem.GameState_map" alt=""/>
+  <map id="hoppin.GameSystem.GameState_map" name="hoppin.GameSystem.GameState_map">
+<area href="classhoppin_1_1_game_system_1_1_game_manager_1_1_new_game_state.html" alt="hoppin.GameSystem.GameManager.NewGameState" shape="rect" coords="0,56,302,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a7fd6f968ac6db4620762f1f5071a435b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fd6f968ac6db4620762f1f5071a435b"></a>
+List&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlayerScore</b> ()</td></tr>
+<tr class="separator:a7fd6f968ac6db4620762f1f5071a435b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a770b9eac31b09a8b05306cbfa31480c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a770b9eac31b09a8b05306cbfa31480c7"></a>
+Dictionary&lt; FieldObject, <a class="el" href="classhoppin_1_1_game_system_1_1_player_data.html">PlayerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerDataList</b> = new Dictionary&lt;FieldObject, <a class="el" href="classhoppin_1_1_game_system_1_1_player_data.html">PlayerData</a>&gt;()</td></tr>
+<tr class="separator:a770b9eac31b09a8b05306cbfa31480c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b397e26c99ffb7dc8983277c1020c53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b397e26c99ffb7dc8983277c1020c53"></a>
+List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerName</b> = new List&lt;string&gt;()</td></tr>
+<tr class="separator:a3b397e26c99ffb7dc8983277c1020c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a4b19854ff38c7961c21df924de563"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73a4b19854ff38c7961c21df924de563"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>PlayCount</b> = new int()</td></tr>
+<tr class="separator:a73a4b19854ff38c7961c21df924de563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeede9b8f24c849cc4a979ba5e3f1dbb6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeede9b8f24c849cc4a979ba5e3f1dbb6"></a>
+List&lt; <a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>boxPositionList</b> = new List&lt;<a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a>&gt;()</td></tr>
+<tr class="separator:aeede9b8f24c849cc4a979ba5e3f1dbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafbf8d917ae66259ead1c2519a757cff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafbf8d917ae66259ead1c2519a757cff"></a>
+List&lt; <a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>shoesPositionList</b> = new List&lt;<a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a>&gt;()</td></tr>
+<tr class="separator:aafbf8d917ae66259ead1c2519a757cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade3862019acf3fa56dc394455b087226"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade3862019acf3fa56dc394455b087226"></a>
+List&lt; <a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bonusPositionList</b> = new List&lt;<a class="el" href="classhoppin_1_1_game_system_1_1_position.html">Position</a>&gt;()</td></tr>
+<tr class="separator:ade3862019acf3fa56dc394455b087226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a53825e98ab71ec7ef82cda8625983ff0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53825e98ab71ec7ef82cda8625983ff0"></a>
-Dictionary&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerScoreList</b> = new Dictionary&lt;int, int&gt;()</td></tr>
-<tr class="separator:a53825e98ab71ec7ef82cda8625983ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab55d74cf0026bf5fd7ef8b8ab6c8316"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab55d74cf0026bf5fd7ef8b8ab6c8316"></a>
-Dictionary&lt; int, <a class="el" href="classhoppin_1_1_abstract_player.html">AbstractPlayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerList</b> = new Dictionary&lt;int, <a class="el" href="classhoppin_1_1_abstract_player.html">AbstractPlayer</a>&gt;()</td></tr>
-<tr class="separator:aab55d74cf0026bf5fd7ef8b8ab6c8316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d86483ff1a4c0d1e3e7433ef6b7a47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0d86483ff1a4c0d1e3e7433ef6b7a47"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>maxTurn</b></td></tr>
+<tr class="separator:ac0d86483ff1a4c0d1e3e7433ef6b7a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6001d9ae6220bae0ba0831799e3bf96d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6001d9ae6220bae0ba0831799e3bf96d"></a>
+FieldObject[,]&#160;</td><td class="memItemRight" valign="bottom"><b>fieldState</b> = new FieldObject[FIELDHEIGHT,FIELDWIDTH]</td></tr>
+<tr class="separator:a6001d9ae6220bae0ba0831799e3bf96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b236f43815ef3fd89072d3b0ea11d33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b236f43815ef3fd89072d3b0ea11d33"></a>
+FieldObject[,]&#160;</td><td class="memItemRight" valign="bottom"><b>fieldFloorColor</b> = new FieldObject[FIELDHEIGHT, FIELDWIDTH]</td></tr>
+<tr class="separator:a6b236f43815ef3fd89072d3b0ea11d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e4c930c267e3c1e8be2b33b1fb695b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34e4c930c267e3c1e8be2b33b1fb695b"></a>
 PlayerMove&#160;</td><td class="memItemRight" valign="bottom"><b>currentPlayerMove</b></td></tr>
 <tr class="separator:a34e4c930c267e3c1e8be2b33b1fb695b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,23 +161,38 @@ PlayerMove&#160;</td><td class="memItemRight" valign="bottom"><b>CurrentPlayerMo
 <tr class="memitem:a556b34d4e6bbaeaadee64a2b37297039"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a556b34d4e6bbaeaadee64a2b37297039"></a>
 FieldObject&#160;</td><td class="memItemRight" valign="bottom"><b>CurrentPlayer</b><code> [get]</code></td></tr>
 <tr class="separator:a556b34d4e6bbaeaadee64a2b37297039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5d13798c4d9c6cc77089a8b35bcfef7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5d13798c4d9c6cc77089a8b35bcfef7"></a>
+<a class="el" href="classhoppin_1_1_game_system_1_1_player_data.html">PlayerData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CurrentPlayerData</b><code> [get]</code></td></tr>
+<tr class="separator:aa5d13798c4d9c6cc77089a8b35bcfef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5c63680a553530b2b5ede5045a49a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d5c63680a553530b2b5ede5045a49a0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TurnNum</b><code> [get, set]</code></td></tr>
+<tr class="separator:a7d5c63680a553530b2b5ede5045a49a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d1a8a6d4cb794cf0b4314f12720d96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1d1a8a6d4cb794cf0b4314f12720d96"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>FieldWidth</b><code> [get]</code></td></tr>
 <tr class="separator:af1d1a8a6d4cb794cf0b4314f12720d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6acc094597adc0350a25824b7a9d105"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6acc094597adc0350a25824b7a9d105"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>FieldHeight</b><code> [get]</code></td></tr>
 <tr class="separator:aa6acc094597adc0350a25824b7a9d105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af347f2c33f7960789f5c845ed8e6f13c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af347f2c33f7960789f5c845ed8e6f13c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ShoesTurn</b><code> [get]</code></td></tr>
+<tr class="separator:af347f2c33f7960789f5c845ed8e6f13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a28e86ec245b55fb6120055e5299cd7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a28e86ec245b55fb6120055e5299cd7"></a>
 FieldObject[,]&#160;</td><td class="memItemRight" valign="bottom"><b>FieldState</b><code> [get, set]</code></td></tr>
 <tr class="separator:a2a28e86ec245b55fb6120055e5299cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19d393158ce2eb52290730c2672fa68d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19d393158ce2eb52290730c2672fa68d"></a>
-FieldColor[,]&#160;</td><td class="memItemRight" valign="bottom"><b>FieldFloorColor</b><code> [get, set]</code></td></tr>
-<tr class="separator:a19d393158ce2eb52290730c2672fa68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb3113972aa024e7929806a6015bf8f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb3113972aa024e7929806a6015bf8f7"></a>
+FieldObject[,]&#160;</td><td class="memItemRight" valign="bottom"><b>FieldFloorColor</b><code> [get, set]</code></td></tr>
+<tr class="separator:aeb3113972aa024e7929806a6015bf8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13573b010e37d7bb31c8fef8f46b7171"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13573b010e37d7bb31c8fef8f46b7171"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ThinkTime</b><code> [get]</code></td></tr>
+<tr class="separator:a13573b010e37d7bb31c8fef8f46b7171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85e1930a8705706c34e831ea832f6d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae85e1930a8705706c34e831ea832f6d0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>MaxTurn</b><code> [get]</code></td></tr>
+<tr class="separator:ae85e1930a8705706c34e831ea832f6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>summary&gt; 全ゲーム情報を保持する GameManagerが統括する /summary&gt; </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>hoppin/GameSystem/GameState.cs</li>
+<li>GameSystem/GameState.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

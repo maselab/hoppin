@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['background',['Background',['../classhoppin_1_1_game_system_1_1_u_i_1_1_background.html',1,'hoppin::GameSystem::UI']]],
-  ['battlefield',['BattleField',['../classhoppin_1_1_game_system_1_1_u_i_1_1_battle_field.html',1,'hoppin::GameSystem::UI']]]
+  ['dispose',['Dispose',['../classhoppin_1_1_hoppin_u_i.html#a6bb97d2a8631997b34eb333080958c23',1,'hoppin::HoppinUI']]]
 ];

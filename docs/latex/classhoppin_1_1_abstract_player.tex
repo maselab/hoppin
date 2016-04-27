@@ -1,31 +1,71 @@
 \hypertarget{classhoppin_1_1_abstract_player}{}\section{hoppin.\+Abstract\+Player Class Reference}
 \label{classhoppin_1_1_abstract_player}\index{hoppin.\+Abstract\+Player@{hoppin.\+Abstract\+Player}}
-Inheritance diagram for hoppin.\+Abstract\+Player\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2.000000cm]{classhoppin_1_1_abstract_player}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-abstract Player\+Move {\bfseries move} ()\hypertarget{classhoppin_1_1_abstract_player_a0f8f66f25014638ed78e82b294b4b306}{}\label{classhoppin_1_1_abstract_player_a0f8f66f25014638ed78e82b294b4b306}
+abstract Player\+Move {\bfseries Get\+Move} ()\hypertarget{classhoppin_1_1_abstract_player_abd1e5ab01f3e4dfcb487432e19e28196}{}\label{classhoppin_1_1_abstract_player_abd1e5ab01f3e4dfcb487432e19e28196}
+
+\item 
+void {\bfseries Set\+Game\+State} (\hyperlink{classhoppin_1_1_game_system_1_1_game_state}{Game\+State} game\+State)\hypertarget{classhoppin_1_1_abstract_player_a832b3b3d17a2046d0a9c221684aabb36}{}\label{classhoppin_1_1_abstract_player_a832b3b3d17a2046d0a9c221684aabb36}
+
+\item 
+Dictionary$<$ Field\+Object, \hyperlink{classhoppin_1_1_game_system_1_1_player_data}{Player\+Data} $>$ {\bfseries Get\+Player\+Data\+List} ()\hypertarget{classhoppin_1_1_abstract_player_a5c27809c110d053e8a3e765350333bac}{}\label{classhoppin_1_1_abstract_player_a5c27809c110d053e8a3e765350333bac}
+
+\item 
+\hyperlink{classhoppin_1_1_game_system_1_1_player_data}{Player\+Data} {\bfseries Get\+My\+Data} ()\hypertarget{classhoppin_1_1_abstract_player_af95bb5c30ae4c8580fcc74931c7d074c}{}\label{classhoppin_1_1_abstract_player_af95bb5c30ae4c8580fcc74931c7d074c}
+
+\item 
+Field\+Object\mbox{[},\mbox{]} \hyperlink{classhoppin_1_1_abstract_player_a562595603775d7d3a86db952ab1803c4}{Get\+Field\+State} ()
+\begin{DoxyCompactList}\small\item\em 盤面の状態を返す \end{DoxyCompactList}\item 
+Field\+Object\mbox{[},\mbox{]} {\bfseries Get\+Field\+Floor\+Color} ()\hypertarget{classhoppin_1_1_abstract_player_ad9bfb34e15875e98b4a21ab185ec556e}{}\label{classhoppin_1_1_abstract_player_ad9bfb34e15875e98b4a21ab185ec556e}
+
+\item 
+List$<$ \hyperlink{classhoppin_1_1_game_system_1_1_position}{Position} $>$ {\bfseries Get\+Box\+Position\+List} ()\hypertarget{classhoppin_1_1_abstract_player_a5fee0ba7f986dee82e9755be84642180}{}\label{classhoppin_1_1_abstract_player_a5fee0ba7f986dee82e9755be84642180}
+
+\item 
+List$<$ \hyperlink{classhoppin_1_1_game_system_1_1_position}{Position} $>$ {\bfseries Get\+Shoes\+Position} ()\hypertarget{classhoppin_1_1_abstract_player_ad1d49bf27fc481633fb3e9e99e7476c2}{}\label{classhoppin_1_1_abstract_player_ad1d49bf27fc481633fb3e9e99e7476c2}
+
+\item 
+List$<$ \hyperlink{classhoppin_1_1_game_system_1_1_position}{Position} $>$ {\bfseries Get\+Bonus\+Position} ()\hypertarget{classhoppin_1_1_abstract_player_a9b923d2b46f90a291120a0bf744ec08b}{}\label{classhoppin_1_1_abstract_player_a9b923d2b46f90a291120a0bf744ec08b}
+
+\item 
+Field\+Object {\bfseries Get\+Player\+Id} ()\hypertarget{classhoppin_1_1_abstract_player_a240f787d7cf74995c9abde296758ff46}{}\label{classhoppin_1_1_abstract_player_a240f787d7cf74995c9abde296758ff46}
+
+\item 
+int {\bfseries Get\+Turn} ()\hypertarget{classhoppin_1_1_abstract_player_a1f87482ec2d48cdaabd5e5fe26c4652b}{}\label{classhoppin_1_1_abstract_player_a1f87482ec2d48cdaabd5e5fe26c4652b}
 
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-String {\bfseries name}\hypertarget{classhoppin_1_1_abstract_player_a8fee3a10d3d1330318327b382cbedee7}{}\label{classhoppin_1_1_abstract_player_a8fee3a10d3d1330318327b382cbedee7}
+string {\bfseries name}\hypertarget{classhoppin_1_1_abstract_player_a35c887f2df50e45706a8ee2bdb5d07c6}{}\label{classhoppin_1_1_abstract_player_a35c887f2df50e45706a8ee2bdb5d07c6}
 
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-String {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\hypertarget{classhoppin_1_1_abstract_player_ae752b9683f48405b7cbc5fa470968dd1}{}\label{classhoppin_1_1_abstract_player_ae752b9683f48405b7cbc5fa470968dd1}
+string {\bfseries Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\hypertarget{classhoppin_1_1_abstract_player_a5bb1d301b6fe5e649bb427e1ee6aef4d}{}\label{classhoppin_1_1_abstract_player_a5bb1d301b6fe5e649bb427e1ee6aef4d}
 
 \end{DoxyCompactItemize}
 
 
+\subsection{Member Function Documentation}
+\index{hoppin\+::\+Abstract\+Player@{hoppin\+::\+Abstract\+Player}!Get\+Field\+State@{Get\+Field\+State}}
+\index{Get\+Field\+State@{Get\+Field\+State}!hoppin\+::\+Abstract\+Player@{hoppin\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Field\+State()}{GetFieldState()}}]{\setlength{\rightskip}{0pt plus 5cm}Field\+Object \mbox{[},\mbox{]} hoppin.\+Abstract\+Player.\+Get\+Field\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_abstract_player_a562595603775d7d3a86db952ab1803c4}{}\label{classhoppin_1_1_abstract_player_a562595603775d7d3a86db952ab1803c4}
+
+
+盤面の状態を返す 
+
+\begin{DoxyReturn}{Returns}
+テスト
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-hoppin/\+Game\+System/Abstract\+Player.\+cs\end{DoxyCompactItemize}
+Game\+System/Abstract\+Player.\+cs\end{DoxyCompactItemize}
