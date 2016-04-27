@@ -14,6 +14,8 @@ namespace hoppin.GameSystem
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
         public int PlayCount = 1000;
         private int processFPS;
+        private int seed = Environment.TickCount;//乱数用
+        private int seedCount = 0;
 
         private delegate PlayerMove MoveDelegate();
 
@@ -58,30 +60,36 @@ namespace hoppin.GameSystem
                 gameState.CurrentPlayer = FieldObject.PLAYER1;
                 GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
                 gameState.CurrentPlayer = FieldObject.PLAYER2;
+                GenerateItems();
                 ProcessTurn();
-                
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
+
                 gameState.CurrentPlayer = FieldObject.PLAYER3;
                 GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
                 gameState.CurrentPlayer = FieldObject.PLAYER4;
+                GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
             }
             gameState.WriteScore();
         }
 
         private void ProcessTurn()
         {
-            playerList[gameState.CurrentPlayer].SetGameState(gameState);
-            MovePlayer();
             if(gameState.playerDataList[gameState.CurrentPlayer].Shoes > 0)
             {
                 playerList[gameState.CurrentPlayer].SetGameState(gameState);
                 gameState.playerDataList[gameState.CurrentPlayer].Shoes--;
                 MovePlayer();
             }
+            playerList[gameState.CurrentPlayer].SetGameState(gameState);
+            MovePlayer();
         }
 
         private void GetPlayerMove()
@@ -301,18 +309,23 @@ namespace hoppin.GameSystem
             int itemNum = gameState.bonusPositionList.Count + gameState.shoesPositionList.Count;//盤面のアイテム数
             int boxNum = gameState.boxPositionList.Count;//盤面の箱数
 
-            const int MINBOXNUM = 1;//スコア箱の下限
             const int MAXIETMNUM = 4;//アイテム全体の上限
-            const int BOXGENERATIONPROBABILITY = 30;
-            const int ITEMGENERATIONPROBABILITY = 15; //アイテムの発生確率(0~100)
+            const int ONEBOXGENERATIONPROBABILITY = 15;
+            const int TWOBOXGENERATIONPROBABILITY = 15;
+            const int ITEMGENERATIONPROBABILITY = 5; //アイテムの発生確率(0~100)
 
-            int seed = Environment.TickCount;//乱数用
             Random rnd = new Random(seed++);
+            seedCount++;
+            if(seedCount == 1000)
+            {
+                seedCount = 0;
+                seed = Environment.TickCount;
+            }
             int randomX;
             int randomY;
 
 
-            if(boxNum == 0 && rnd.Next(101) < BOXGENERATIONPROBABILITY)
+            if(boxNum == 0 && rnd.Next(100) < ONEBOXGENERATIONPROBABILITY)
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);
@@ -322,7 +335,7 @@ namespace hoppin.GameSystem
                     gameState.boxPositionList.Add(new Position(randomX, randomY));
                 }
             }
-            else if (boxNum == MINBOXNUM && rnd.Next(101) < BOXGENERATIONPROBABILITY - 10)
+            else if (boxNum == 1 && rnd.Next(100) < TWOBOXGENERATIONPROBABILITY)
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);

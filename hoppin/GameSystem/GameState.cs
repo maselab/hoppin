@@ -21,7 +21,8 @@ namespace hoppin.GameSystem
         private const int FIELDWIDTH = 8;
         private const int SHOESTURN = 5;
         private int turnNum = 0;
-        private const int THINKTIME = 1000;
+        private const int THINKTIME = 500;
+        private const int maxScore = 300;
         protected int maxTurn;
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
         protected FieldObject[,] fieldFloorColor = new FieldObject[FIELDHEIGHT, FIELDWIDTH];
@@ -39,6 +40,11 @@ namespace hoppin.GameSystem
         public PlayerMove CurrentPlayerMove
         {
             get { return this.currentPlayerMove; }
+        }
+
+        public int MaxScore
+        {
+            get { return maxScore; }
         }
 
         public FieldObject CurrentPlayer
@@ -87,10 +93,10 @@ namespace hoppin.GameSystem
         public List<int> GetPlayerScore()
         {
             List<int> retList = new List<int>();
-            foreach(KeyValuePair<FieldObject,PlayerData> pair in playerDataList)
-            {
-                retList.Add(pair.Value.Score);
-            }
+            retList.Add(playerDataList[FieldObject.PLAYER1].Score);
+            retList.Add(playerDataList[FieldObject.PLAYER2].Score);
+            retList.Add(playerDataList[FieldObject.PLAYER3].Score);
+            retList.Add(playerDataList[FieldObject.PLAYER4].Score);
             return retList;
         }
 
