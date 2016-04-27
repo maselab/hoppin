@@ -21,6 +21,8 @@ namespace hoppin.GameSystem
         private const int FIELDWIDTH = 8;
         private const int SHOESTURN = 5;
         private int turnNum = 0;
+        private const int THINKTIME = 1000;
+        protected int maxTurn;
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];
         protected FieldObject[,] fieldFloorColor = new FieldObject[FIELDHEIGHT, FIELDWIDTH];
         public Dictionary<FieldObject,PlayerData> playerDataList = new Dictionary<FieldObject, PlayerData>();
@@ -90,6 +92,16 @@ namespace hoppin.GameSystem
                 retList.Add(pair.Value.Score);
             }
             return retList;
+        }
+
+        public int ThinkTime
+        {
+            get { return THINKTIME; }
+        }
+
+        public int MaxTurn
+        {
+            get { return maxTurn; }
         }
 
     }

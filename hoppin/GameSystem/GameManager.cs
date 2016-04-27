@@ -12,27 +12,22 @@ namespace hoppin.GameSystem
     {
         public NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
+<<<<<<< HEAD
         public int PlayCount = 1000;
+=======
+        private int processFPS;
+>>>>>>> hashiguchi_ver2
 
         private delegate PlayerMove MoveDelegate();
 
-        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4)
+        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount, int fps)
         {
             playerList.Add(FieldObject.PLAYER1, player1);
             playerList.Add(FieldObject.PLAYER2, player2);
             playerList.Add(FieldObject.PLAYER3, player3);
             playerList.Add(FieldObject.PLAYER4, player4);
-            gameState = new NewGameState(GetPlayerName());
-        }
-
-        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount)
-        {
-            playerList.Add(FieldObject.PLAYER1, player1);
-            playerList.Add(FieldObject.PLAYER2, player2);
-            playerList.Add(FieldObject.PLAYER3, player3);
-            playerList.Add(FieldObject.PLAYER4, player4);
-            gameState = new NewGameState(GetPlayerName());
-            this.PlayCount = playCount;
+            gameState = new NewGameState(GetPlayerName(),playCount);
+            this.processFPS = fps;
         }
 
 
@@ -46,11 +41,15 @@ namespace hoppin.GameSystem
             return retList;
         }
 
+<<<<<<< HEAD
         public int GetPlayCount()
         {
             return PlayCount;
         } 
 
+=======
+        #region ゲーム進行
+>>>>>>> hashiguchi_ver2
         public void ProcessGame()
         {
             ///N回まわしたら終了
@@ -59,56 +58,23 @@ namespace hoppin.GameSystem
             ///
             System.Threading.Thread.Sleep(3000);
 
-            for(int i = 0; i < PlayCount; i++)
+            for(int i = 0; i < gameState.MaxTurn; i++)
             {
                 gameState.TurnNum++;
                 gameState.CurrentPlayer = FieldObject.PLAYER1;
-                Debug.WriteLine(gameState.CurrentPlayer);
+                GenerateItems();
                 ProcessTurn();
-                for(int y = 0; y < gameState.FieldHeight; y++)
-                {
-                    for(int x = 0; x < gameState.FieldWidth; x++)
-                    {
-                        Debug.Write(gameState.FieldState[y, x] + " ");
-                    }
-                    Debug.WriteLine("");
-                }
 
                 gameState.CurrentPlayer = FieldObject.PLAYER2;
-                Debug.WriteLine(gameState.CurrentPlayer);
                 ProcessTurn();
-                for (int y = 0; y < gameState.FieldHeight; y++)
-                {
-                    for (int x = 0; x < gameState.FieldWidth; x++)
-                    {
-                        Debug.Write(gameState.FieldState[y, x] + " ");
-                    }
-                    Debug.WriteLine("");
-                }
+                
                 gameState.CurrentPlayer = FieldObject.PLAYER3;
-                Debug.WriteLine(gameState.CurrentPlayer);
+                GenerateItems();
                 ProcessTurn();
-                for (int y = 0; y < gameState.FieldHeight; y++)
-                {
-                    for (int x = 0; x < gameState.FieldWidth; x++)
-                    {
-                        Debug.Write(gameState.FieldState[y, x] + " ");
-                    }
-                    Debug.WriteLine("");
-                }
-                gameState.CurrentPlayer = FieldObject.PLAYER4;
-                Debug.WriteLine(gameState.CurrentPlayer);
-                ProcessTurn();
-                for (int y = 0; y < gameState.FieldHeight; y++)
-                {
-                    for (int x = 0; x < gameState.FieldWidth; x++)
-                    {
-                        Debug.Write(gameState.FieldState[y, x] + " ");
-                    }
-                    Debug.WriteLine("");
-                }
-            }
 
+                gameState.CurrentPlayer = FieldObject.PLAYER4;
+                ProcessTurn();
+            }
             gameState.WriteScore();
         }
 
@@ -152,7 +118,7 @@ namespace hoppin.GameSystem
                 {
                     endTime = DateTime.Now;
                     timeSpan = endTime - startTime;
-                    if (timeSpan.TotalMilliseconds > 1000)
+                    if (timeSpan.TotalMilliseconds > gameState.ThinkTime)
                     {
                         thread.Abort();
                         isThreadTimeOut = true;
@@ -169,8 +135,9 @@ namespace hoppin.GameSystem
 
             if(!isThreadTimeOut)
             {
-                Debug.WriteLine(gameState.CurrentPlayerMove);
                 JudgeMove();
+                if (timeSpan.TotalMilliseconds + processFPS < gameState.ThinkTime)
+                    Thread.Sleep(processFPS);
             }
 
             else
@@ -199,7 +166,7 @@ namespace hoppin.GameSystem
                 //ar.AsyncWaitHandle.WaitOne();
             }*/
         }
-
+        #endregion
 
         #region 移動判定用メソッド群
 
@@ -216,11 +183,7 @@ namespace hoppin.GameSystem
             //GenerateItemsでアイテム生成
             //例外チェック(FieldObjectに各プレーヤーが1人ずついるか)
             #endregion
-            if (!IsBump())
-            {
-                Debug.WriteLine("進めません");
-            }
-            else
+            if(IsBump())
             {
                 Position destination = GetPlayerDestination();
                 if (IsGetItems() == FieldObject.BONUS)//アイテム1
@@ -249,10 +212,8 @@ namespace hoppin.GameSystem
                 }
                 else
                 {
-                    Debug.WriteLine("例外1");
                 }
             }
-            GenerateItems();//アイテム生成判定
 
         }
         private bool IsBump()
@@ -346,12 +307,10 @@ namespace hoppin.GameSystem
             int itemNum = gameState.bonusPositionList.Count + gameState.shoesPositionList.Count;//盤面のアイテム数
             int boxNum = gameState.boxPositionList.Count;//盤面の箱数
 
-            Debug.WriteLine("item box " + itemNum + " " + boxNum);
-
             const int MINBOXNUM = 1;//スコア箱の下限
             const int MAXIETMNUM = 4;//アイテム全体の上限
             const int BOXGENERATIONPROBABILITY = 30;
-            const int ITEMGENERATIONPROBABILITY = 20; //アイテムの発生確率(0~100)
+            const int ITEMGENERATIONPROBABILITY = 15; //アイテムの発生確率(0~100)
 
             int seed = Environment.TickCount;//乱数用
             Random rnd = new Random(seed++);
@@ -398,7 +357,7 @@ namespace hoppin.GameSystem
                     if (gameState.FieldState[randomY, randomX] == FieldObject.BLANK)
                     {
                         gameState.FieldState[randomY, randomX] = FieldObject.SHOES;
-                        gameState.bonusPositionList.Add(new Position(randomX, randomY));
+                        gameState.shoesPositionList.Add(new Position(randomX, randomY));
                     }
                 }
                 
@@ -429,7 +388,6 @@ namespace hoppin.GameSystem
                 width = -1;
 
             gameState.FieldFloorColor[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動先の色塗り替え
-            //↑ばぐりそう
             gameState.FieldState[playerHeight, playerWidth] = FieldObject.BLANK;//自分のいた位置をBLANKに
             gameState.FieldState[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動後を自分のマスに
             gameState.CurrentPlayerData.PositionY = playerHeight + height;
@@ -463,10 +421,10 @@ namespace hoppin.GameSystem
             for (int i = 0; i < gameState.FieldHeight; i++)//塗りつぶし作業
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
-                    if (i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    if ((i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    && workField[i, j] == -1)
                     {
                         workField = Fill(workField, i, j);
-
                     }
                 }
 
@@ -488,22 +446,26 @@ namespace hoppin.GameSystem
         private int[,] Fill(int[,] field, int x, int y)
         { //塗りつぶしをする再帰関数
 
-            if (y > 0 && field[x, y - 1] == -1)
+            if (y > 0 && field[x, y - 1] == -1
+                && field[x, y - 1] == -1)
             {
                 field[x, y - 1] = 0;
                 Fill(field, x, y - 1);
             }
-            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1)
+            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1
+                && field[x + 1, y] == -1)
             { /* 右 */
                 field[x + 1, y] = 0;
                 Fill(field, x + 1, y);
             }
-            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1)
+            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1
+                && field[x, y + 1] == -1)
             {/* 下 */
                 field[x, y + 1] = 0;
                 Fill(field, x, y + 1);
             }
-            if (x > 0 && field[x - 1, y] == -1)
+            if (x > 0 && field[x - 1, y] == -1
+                && field[x - 1, y] == -1)
             { /* 左 */
                 field[x - 1, y] = 0;
                 Fill(field, x - 1, y);
@@ -526,18 +488,19 @@ namespace hoppin.GameSystem
                     }
                 }
 
-            gameState.playerDataList[gameState.CurrentPlayer].Score += score;
+            gameState.CurrentPlayerData.Score += score;
         }
         #endregion
 
         [Serializable()]
         public class NewGameState : GameState
         {
-            public NewGameState(List<string> playerName)
+            public NewGameState(List<string> playerName, int playCount)
             {
                 // fieldObjectにplayer配置 :ok
                 // fieldStoorColorに初期色 :ok
                 this.playerName = playerName;
+                this.maxTurn = playCount;
 
                 for(int x = 0; x < this.FieldWidth; x++)
                 {

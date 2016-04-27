@@ -65,5 +65,10 @@ namespace hoppin
         {
             return gameState.CurrentPlayer;
         }
+
+        public int GetTurn()
+        {
+            return gameState.TurnNum;
+        }
     }
 }
