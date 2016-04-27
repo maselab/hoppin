@@ -25,6 +25,7 @@ namespace hoppin
 
         public HoppinUI(GameManager gameManager)
         {
+            this.Icon = new System.Drawing.Icon(@"images\icon.ico");
             InitializeComponent();
             this.gameManager = gameManager;
 
