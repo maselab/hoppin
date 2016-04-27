@@ -21,7 +21,7 @@ namespace hoppin.GameSystem.UI
         public void draw(PaintEventArgs e)
         {
             currentTurn = gameState.TurnNum;
-            turns = 50;
+            turns = gameState.PlayCount;
             e.Graphics.TranslateTransform(0, style.windowHeight - 42);
             e.Graphics.FillRectangle(new SolidBrush(style.turnBoardColor), 0, 0, style.windowWidth, 42);
             int restBarWidth = (int)(style.windowWidth * (double)((double)currentTurn / (double)turns));

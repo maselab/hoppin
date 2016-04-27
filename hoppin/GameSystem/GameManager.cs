@@ -12,7 +12,7 @@ namespace hoppin.GameSystem
     {
         public NewGameState gameState;
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
-        private int PlayCount = 50;
+        public int PlayCount = 1000;
 
         private delegate PlayerMove MoveDelegate();
 
@@ -35,6 +35,7 @@ namespace hoppin.GameSystem
             this.PlayCount = playCount;
         }
 
+
         public List<String> GetPlayerName()
         {
             List<string> retList = new List<string>();
@@ -44,6 +45,11 @@ namespace hoppin.GameSystem
             }
             return retList;
         }
+
+        public int GetPlayCount()
+        {
+            return PlayCount;
+        } 
 
         public void ProcessGame()
         {
