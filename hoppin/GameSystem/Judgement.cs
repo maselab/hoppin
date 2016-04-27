@@ -193,7 +193,7 @@ namespace hoppin.GameSystem
 
             const int MINBOXNUM = 1;//スコア箱の下限
             const int MAXIETMNUM = 3;//アイテム全体の上限
-            const int GENERATIONPROBABILITY = 20; //アイテムの発生確率(0~100)
+            const int GENERATIONPROBABILITY = 10; //アイテムの発生確率(0~100)
 
             int seed = Environment.TickCount;//乱数用
             Random rnd = new Random(seed++);
@@ -218,7 +218,9 @@ namespace hoppin.GameSystem
             if(itemNum < MAXIETMNUM && rnd.Next(101) < GENERATIONPROBABILITY){//アイテム生成フラグ
                 if(boxNum < MINBOXNUM){
                     if (gameState.FieldState[rnd2.Next(8), rnd3.Next(8)] == FieldObject.BLANK)
+                    {
                         gameState.FieldState[rnd2.Next(8), rnd3.Next(8)] = FieldObject.BOX;
+                    }
                 }//箱が足りなければ優先して生成
                 else{
                     if (gameState.FieldState[rnd2.Next(8), rnd3.Next(8)] == FieldObject.BLANK)
@@ -280,6 +282,10 @@ namespace hoppin.GameSystem
             //その空マスを使った囲み領域は存在しないので、再帰的にその領域全体を割り出して、除外する。
             //これを全他色壁に対して行い最後までのこる空マスがあれば、囲みあり。
             int[,] workField = new int[gameState.FieldHeight, gameState.FieldWidth];
+            // 1 = 自分の色
+            // -1 = 空白マス
+            // 0 = 壁に隣接する空白マス
+
             // int[,] getArea = new int[gameState.FieldHeight, gameState.FieldWidth];
             for (int i = 0; i < gameState.FieldHeight; i++)//変数を用意
                 for (int j = 0; j < gameState.FieldWidth; j++)
@@ -297,10 +303,10 @@ namespace hoppin.GameSystem
             for (int i = 0; i < gameState.FieldHeight; i++)//塗りつぶし作業
                 for (int j = 0; j < gameState.FieldWidth; j++)
                 {
-                    if (i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    if( (i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
+                    && workField[i,j] == -1)
                     {
                         workField = Fill(workField, i, j);
-
                     }
                 }
             for (int i = 0; i < gameState.FieldHeight; i++)//囲み領域の発見
@@ -316,26 +322,29 @@ namespace hoppin.GameSystem
         }
         private int[,] Fill(int[,] field, int x, int y)
         { //塗りつぶしをする再帰関数
-
+            //x = height y = width
             if (y > 0 && field[x, y - 1] == -1)
             {
-                field[x, y - 1] = 0;
                 Fill(field, x, y - 1);
+                field[x, y - 1] = 0;
+
             }
             if (x < gameState.FieldHeight && field[x + 1, y] == -1)
             { /* 右 */
-                field[x + 1, y] = 0;
                 Fill(field, x + 1, y);
+                field[x + 1, y] = 0;
+
             }
             if (y < gameState.FieldWidth && field[x, y + 1] == -1)
             {/* 下 */
-                field[x, y + 1] = 0;
                 Fill(field, x, y + 1);
+                field[x, y + 1] = 0;
+
             }
             if (x > 0 && field[x - 1, y] == -1)
             { /* 左 */
-                field[x - 1, y] = 0;
                 Fill(field, x - 1, y);
+                field[x - 1, y] = 0;
             }
 
             return field;
