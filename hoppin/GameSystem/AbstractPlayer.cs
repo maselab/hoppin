@@ -16,6 +16,16 @@ namespace hoppin
 
         abstract public PlayerMove GetMove(); 
 
+        public AbstractPlayer()
+        {
+            this.name = "NoName";
+        }
+
+        public AbstractPlayer(string name)
+        {
+            this.name = name;
+        }
+
         public string Name
         {
             get { return this.name; }

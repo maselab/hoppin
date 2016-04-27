@@ -418,7 +418,7 @@ namespace hoppin.GameSystem
                     if ((i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
                     && workField[i, j] == -1)
                     {
-                        workField = Fill(workField, i, j);
+                        if (workField[i, j] == -1) workField = Fill(workField, i, j);
                     }
                 }
 
@@ -437,32 +437,28 @@ namespace hoppin.GameSystem
             gameState.CurrentPlayerData.Score += enclosedFieldNum * 2;
             if(enclosedFieldNum != 0) Debug.WriteLine("getBONUSPOINT!");
         }
-        private int[,] Fill(int[,] field, int x, int y)
+        private int[,] Fill(int[,] field, int i, int j)
         { //塗りつぶしをする再帰関数
 
-            if (y > 0 && field[x, y - 1] == -1
-                && field[x, y - 1] == -1)
+            if (j > 0 && field[i, j - 1] == -1)
             {
-                field[x, y - 1] = 0;
-                Fill(field, x, y - 1);
+                field[i, j - 1] = 0;
+                field = Fill(field, i, j - 1);
             }
-            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1
-                && field[x + 1, y] == -1)
+            if (i < gameState.FieldHeight - 1 && field[i + 1, j] == -1)
             { /* 右 */
-                field[x + 1, y] = 0;
-                Fill(field, x + 1, y);
+                field[i + 1, j] = 0;
+                field = Fill(field, i + 1, j);
             }
-            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1
-                && field[x, y + 1] == -1)
+            if (j < gameState.FieldWidth - 1 && field[i, j + 1] == -1)
             {/* 下 */
-                field[x, y + 1] = 0;
-                Fill(field, x, y + 1);
+                field[i, j + 1] = 0;
+                field = Fill(field, i, j + 1);
             }
-            if (x > 0 && field[x - 1, y] == -1
-                && field[x - 1, y] == -1)
+            if (i > 0 && field[i - 1, j] == -1)
             { /* 左 */
-                field[x - 1, y] = 0;
-                Fill(field, x - 1, y);
+                field[i - 1, j] = 0;
+                field = Fill(field, i - 1, j);
             }
 
             return field;
