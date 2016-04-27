@@ -16,14 +16,12 @@ namespace hoppin
         PlayerData myData;
         List<Position> boxList;
 
-        public SamplePlayer()
+        public SamplePlayer() : base()
         {
-            this.name = "NoName";
         }
 
-        public SamplePlayer(string name)
+        public SamplePlayer(string name) : base(name)
         {
-            this.name = name;
         }
 
         //※This player don't think floorColor!

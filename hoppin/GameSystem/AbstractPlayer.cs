@@ -16,6 +16,29 @@ namespace hoppin
 
         abstract public PlayerMove GetMove(); 
 
+        /// <summary>
+        /// コンストラクタ
+        /// 名前表示がNoNameになります
+        /// </summary>
+        public AbstractPlayer()
+        {
+            this.name = "NoName";
+        }
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="name">
+        /// 表示したい名前
+        /// </param>
+        public AbstractPlayer(string name)
+        {
+            this.name = name;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Name
         {
             get { return this.name; }

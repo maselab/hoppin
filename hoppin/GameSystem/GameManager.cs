@@ -14,6 +14,8 @@ namespace hoppin.GameSystem
         private Dictionary<FieldObject, AbstractPlayer> playerList = new Dictionary<FieldObject, AbstractPlayer>();
         public int PlayCount = 1000;
         private int processFPS;
+        private int seed = Environment.TickCount;//乱数用
+        private int seedCount = 0;
 
         private delegate PlayerMove MoveDelegate();
 
@@ -58,30 +60,36 @@ namespace hoppin.GameSystem
                 gameState.CurrentPlayer = FieldObject.PLAYER1;
                 GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
                 gameState.CurrentPlayer = FieldObject.PLAYER2;
+                GenerateItems();
                 ProcessTurn();
-                
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
+
                 gameState.CurrentPlayer = FieldObject.PLAYER3;
                 GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
 
                 gameState.CurrentPlayer = FieldObject.PLAYER4;
+                GenerateItems();
                 ProcessTurn();
+                if (gameState.CurrentPlayerData.Score >= gameState.MaxScore) break;
             }
             gameState.WriteScore();
         }
 
         private void ProcessTurn()
         {
-            playerList[gameState.CurrentPlayer].SetGameState(gameState);
-            MovePlayer();
             if(gameState.playerDataList[gameState.CurrentPlayer].Shoes > 0)
             {
                 playerList[gameState.CurrentPlayer].SetGameState(gameState);
                 gameState.playerDataList[gameState.CurrentPlayer].Shoes--;
                 MovePlayer();
             }
+            playerList[gameState.CurrentPlayer].SetGameState(gameState);
+            MovePlayer();
         }
 
         private void GetPlayerMove()
@@ -301,18 +309,23 @@ namespace hoppin.GameSystem
             int itemNum = gameState.bonusPositionList.Count + gameState.shoesPositionList.Count;//盤面のアイテム数
             int boxNum = gameState.boxPositionList.Count;//盤面の箱数
 
-            const int MINBOXNUM = 1;//スコア箱の下限
             const int MAXIETMNUM = 4;//アイテム全体の上限
-            const int BOXGENERATIONPROBABILITY = 30;
-            const int ITEMGENERATIONPROBABILITY = 15; //アイテムの発生確率(0~100)
+            const int ONEBOXGENERATIONPROBABILITY = 15;
+            const int TWOBOXGENERATIONPROBABILITY = 15;
+            const int ITEMGENERATIONPROBABILITY = 5; //アイテムの発生確率(0~100)
 
-            int seed = Environment.TickCount;//乱数用
             Random rnd = new Random(seed++);
+            seedCount++;
+            if(seedCount == 1000)
+            {
+                seedCount = 0;
+                seed = Environment.TickCount;
+            }
             int randomX;
             int randomY;
 
 
-            if(boxNum == 0 && rnd.Next(101) < BOXGENERATIONPROBABILITY)
+            if(boxNum == 0 && rnd.Next(100) < ONEBOXGENERATIONPROBABILITY)
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);
@@ -322,7 +335,7 @@ namespace hoppin.GameSystem
                     gameState.boxPositionList.Add(new Position(randomX, randomY));
                 }
             }
-            else if (boxNum == MINBOXNUM && rnd.Next(101) < BOXGENERATIONPROBABILITY - 10)
+            else if (boxNum == 1 && rnd.Next(100) < TWOBOXGENERATIONPROBABILITY)
             {
                 randomX = rnd.Next(8);
                 randomY = rnd.Next(8);
@@ -418,7 +431,7 @@ namespace hoppin.GameSystem
                     if ((i == 0 || i == gameState.FieldHeight - 1 || j == 0 || j == gameState.FieldWidth - 1)
                     && workField[i, j] == -1)
                     {
-                        workField = Fill(workField, i, j);
+                        if (workField[i, j] == -1) workField = Fill(workField, i, j);
                     }
                 }
 
@@ -437,32 +450,28 @@ namespace hoppin.GameSystem
             gameState.CurrentPlayerData.Score += enclosedFieldNum * 2;
             if(enclosedFieldNum != 0) Debug.WriteLine("getBONUSPOINT!");
         }
-        private int[,] Fill(int[,] field, int x, int y)
+        private int[,] Fill(int[,] field, int i, int j)
         { //塗りつぶしをする再帰関数
 
-            if (y > 0 && field[x, y - 1] == -1
-                && field[x, y - 1] == -1)
+            if (j > 0 && field[i, j - 1] == -1)
             {
-                field[x, y - 1] = 0;
-                Fill(field, x, y - 1);
+                field[i, j - 1] = 0;
+                field = Fill(field, i, j - 1);
             }
-            if (x < gameState.FieldHeight - 1 && field[x + 1, y] == -1
-                && field[x + 1, y] == -1)
+            if (i < gameState.FieldHeight - 1 && field[i + 1, j] == -1)
             { /* 右 */
-                field[x + 1, y] = 0;
-                Fill(field, x + 1, y);
+                field[i + 1, j] = 0;
+                field = Fill(field, i + 1, j);
             }
-            if (y < gameState.FieldWidth - 1 && field[x, y + 1] == -1
-                && field[x, y + 1] == -1)
+            if (j < gameState.FieldWidth - 1 && field[i, j + 1] == -1)
             {/* 下 */
-                field[x, y + 1] = 0;
-                Fill(field, x, y + 1);
+                field[i, j + 1] = 0;
+                field = Fill(field, i, j + 1);
             }
-            if (x > 0 && field[x - 1, y] == -1
-                && field[x - 1, y] == -1)
+            if (i > 0 && field[i - 1, j] == -1)
             { /* 左 */
-                field[x - 1, y] = 0;
-                Fill(field, x - 1, y);
+                field[i - 1, j] = 0;
+                field = Fill(field, i - 1, j);
             }
 
             return field;
