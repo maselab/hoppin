@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['dispose',['Dispose',['../classhoppin_1_1_hoppin_u_i.html#a6bb97d2a8631997b34eb333080958c23',1,'hoppin::HoppinUI']]]
+  ['gamemanager',['GameManager',['../classhoppin_1_1_game_system_1_1_game_manager.html',1,'hoppin::GameSystem']]],
+  ['gamestate',['GameState',['../classhoppin_1_1_game_system_1_1_game_state.html',1,'hoppin::GameSystem']]],
+  ['getfieldstate',['GetFieldState',['../classhoppin_1_1_abstract_player.html#a562595603775d7d3a86db952ab1803c4',1,'hoppin::AbstractPlayer']]]
 ];
