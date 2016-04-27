@@ -297,7 +297,7 @@ namespace hoppin.GameSystem
             const int MINBOXNUM = 1;//スコア箱の下限
             const int MAXIETMNUM = 4;//アイテム全体の上限
             const int BOXGENERATIONPROBABILITY = 30;
-            const int ITEMGENERATIONPROBABILITY = 20; //アイテムの発生確率(0~100)
+            const int ITEMGENERATIONPROBABILITY = 15; //アイテムの発生確率(0~100)
 
             int seed = Environment.TickCount;//乱数用
             Random rnd = new Random(seed++);
@@ -471,7 +471,7 @@ namespace hoppin.GameSystem
                     }
                 }
 
-            gameState.playerDataList[gameState.CurrentPlayer].Score += score;
+            gameState.CurrentPlayerData.Score += score;
         }
         #endregion
 
