@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['down',['down',['../d1/df1/namespacehoppin_1_1_game_system.html#a09ca9399921bb6094069df368b7c3f0fa74e8333ad11685ff3bdae589c8f6e34d',1,'hoppin::GameSystem']]]
+  ['blank',['Blank',['../namespacehoppin_1_1_game_information.html#a550036a5a24113f1dbc2384284a03d18ae4ef81cce7e4e10033ebb10962dfdd5e',1,'hoppin::GameInformation']]],
+  ['bonus',['Bonus',['../namespacehoppin_1_1_game_information.html#a550036a5a24113f1dbc2384284a03d18a3c0ee4bacc905ad4abb857127975acfc',1,'hoppin::GameInformation']]],
+  ['box',['Box',['../namespacehoppin_1_1_game_information.html#a550036a5a24113f1dbc2384284a03d18a3cfce651e667ab85486dd42a8185f98a',1,'hoppin::GameInformation']]]
 ];

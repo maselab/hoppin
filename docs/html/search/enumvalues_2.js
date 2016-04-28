@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right',['right',['../d1/df1/namespacehoppin_1_1_game_system.html#a09ca9399921bb6094069df368b7c3f0fa7c4f29407893c334a6cb7a87bf045c0d',1,'hoppin::GameSystem']]]
+  ['left',['Left',['../namespacehoppin_1_1_game_information.html#afd961b6fde49f79a6a262a67a3683bb7a945d5e233cf7d6240f6b783b36a374ff',1,'hoppin::GameInformation']]]
 ];

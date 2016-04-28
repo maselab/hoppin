@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['playerdata',['PlayerData',['../classhoppin_1_1_game_system_1_1_player_data.html',1,'hoppin::GameSystem']]],
-  ['position',['Position',['../classhoppin_1_1_game_system_1_1_position.html',1,'hoppin::GameSystem']]],
-  ['processgame',['ProcessGame',['../classhoppin_1_1_game_system_1_1_game_manager.html#a3b7f650329b12f373ef3d4077bf6d3a3',1,'hoppin::GameSystem::GameManager']]]
+  ['left',['Left',['../namespacehoppin_1_1_game_information.html#afd961b6fde49f79a6a262a67a3683bb7a945d5e233cf7d6240f6b783b36a374ff',1,'hoppin::GameInformation']]]
 ];
