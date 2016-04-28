@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onpaint',['OnPaint',['../classhoppin_1_1_hoppin_u_i.html#a4ebb6fb66a82f87ac8c53665958ba151',1,'hoppin::HoppinUI']]]
+  ['name',['Name',['../classhoppin_1_1_game_information_1_1_abstract_player.html#a2f41b3d51e4873b6eb2ac04c1c38adcd',1,'hoppin::GameInformation::AbstractPlayer']]]
 ];
