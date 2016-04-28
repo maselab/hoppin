@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hoppin.GameSystem
+namespace hoppin.GameInformation
 {
-
+    public enum PlayerMove : int { Up, Down, Left, Right };
+    public enum FieldObject : int { Blank, PlayerA, PlayerB, PlayerC, PlayerD, Shoes, Bonus, Box };
     /// <summary>
     /// 盤面の位置を表現するための汎用クラス
     /// </summary>

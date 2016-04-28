@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using hoppin.GameSystem;
+using hoppin.GameInformation;
 
 namespace hoppin
 {
@@ -101,29 +102,55 @@ namespace hoppin
             return gameState.FieldFloorColor;
         }
         /// <summary>
-        /// 
+        /// アイテム：箱の位置のリストを取得する
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// Type:List<Position>
+        /// 箱の位置のリスト
+        /// </returns>
         public List<Position> GetBoxPositionList()
         {
             return gameState.boxPositionList;
         }
 
+        /// <summary>
+        /// アイテム：靴の位置のリストを取得する
+        /// </summary>
+        /// <returns>
+        /// 靴の位置のリスト
+        /// </returns>
         public List<Position> GetShoesPosition()
         {
             return gameState.shoesPositionList;
         }
-
+        /// <summary>
+        /// アイテム：ボーナスの位置のリストを取得する
+        /// </summary>
+        /// <returns>
+        /// ボーナスの位置のリスト
+        /// </returns>
         public List<Position> GetBonusPosition()
         {
             return gameState.bonusPositionList;
         }
-
-        public FieldObject GetPlayerId()
+        /// <summary>
+        /// 自身のFieldObjectにおける値を取得する
+        /// </summary>
+        /// <returns>
+        /// Type:FieldObject
+        /// PlayerA or PlayerB or PlayerC or PlayerD
+        /// </returns>
+        public FieldObject GetMyPlayerId()
         {
             return gameState.CurrentPlayer;
         }
 
+        /// <summary>
+        /// 現在のターン数を取得する
+        /// </summary>
+        /// <returns>
+        /// ターン数
+        /// </returns>
         public int GetTurn()
         {
             return gameState.TurnNum;

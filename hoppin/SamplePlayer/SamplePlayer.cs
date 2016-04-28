@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using hoppin.GameSystem;
+//Player作成にあたり必要な情報を含む
+using hoppin.GameInformation;
 
 namespace hoppin.Player
 {

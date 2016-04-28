@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
+using hoppin.GameInformation;
 
 namespace hoppin.GameSystem
 {
@@ -316,7 +317,7 @@ namespace hoppin.GameSystem
 
             Random rnd = new Random(seed++);
             seedCount++;
-            if(seedCount == 1000)
+            if(seedCount > 10000)
             {
                 seedCount = 0;
                 seed = Environment.TickCount;

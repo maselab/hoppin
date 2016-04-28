@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hoppin.GameSystem
+namespace hoppin.GameInformation
 {
     /// <summary>
     /// プレイヤーのデータを表現する汎用クラス
+    /// スコア，靴の所持情報，位置を管理する
     /// </summary>
     [Serializable()]
     public class PlayerData

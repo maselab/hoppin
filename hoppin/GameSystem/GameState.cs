@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using hoppin.GameInformation;
+
 namespace hoppin.GameSystem
 {
-    public enum PlayerMove : int { Up,Down,Left,Right };
-    public enum FieldObject : int { Blank,PlayerA,PlayerB,PlayerC,PlayerD,Shoes,Bonus,Box};
+
 
 
     ///<summary>
