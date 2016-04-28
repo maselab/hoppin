@@ -1,0 +1,228 @@
+\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player}{}\section{hoppin.\+Game\+Information.\+Abstract\+Player Class Reference}
+\label{classhoppin_1_1_game_information_1_1_abstract_player}\index{hoppin.\+Game\+Information.\+Abstract\+Player@{hoppin.\+Game\+Information.\+Abstract\+Player}}
+
+
+今回作成していただくプレイヤーの抽象クラスです． ゲーム側は\+Get\+Move()を使用してプレイヤーの動作を決定しています． 使用できる関数は参照値を返すため，取得したデータをそのまま変更すると，関数から取得できる値も変更されてしまいます．  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract \hyperlink{namespacehoppin_1_1_game_information_afd961b6fde49f79a6a262a67a3683bb7}{Player\+Move} {\bfseries Get\+Move} ()\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a497323e57e5b27d893e1a8ab60690373}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a497323e57e5b27d893e1a8ab60690373}
+
+\item 
+\hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a4e302664d498e2f5b99bda58ec0e6aa6}{Abstract\+Player} ()
+\begin{DoxyCompactList}\small\item\em コンストラクタ 名前表示が\+No\+Nameになります \end{DoxyCompactList}\item 
+\hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a4375849e20ccf78ef5b4df436318d042}{Abstract\+Player} (string name)
+\begin{DoxyCompactList}\small\item\em コンストラクタ \end{DoxyCompactList}\item 
+void {\bfseries Set\+Game\+State} (Game\+State game\+State)\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a6e5de7a2c2837dea0fcf87b14a848cc2}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a6e5de7a2c2837dea0fcf87b14a848cc2}
+
+\item 
+Dictionary$<$ \hyperlink{namespacehoppin_1_1_game_information_a550036a5a24113f1dbc2384284a03d18}{Field\+Object}, \hyperlink{classhoppin_1_1_game_information_1_1_player_data}{Player\+Data} $>$ \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a9846a024bb8d370a5d999c325c2bc15c}{Get\+Player\+Data\+List} ()
+\begin{DoxyCompactList}\small\item\em Field\+Objectを\+Keyとする\+Player\+Dataのリストを取得する \end{DoxyCompactList}\item 
+\hyperlink{classhoppin_1_1_game_information_1_1_player_data}{Player\+Data} \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a3b588154f3bbdf1c554870fab81bfdc9}{Get\+My\+Data} ()
+\begin{DoxyCompactList}\small\item\em 自身のスコア，位置，\+Shoesの取得状況を取得する \end{DoxyCompactList}\item 
+\hyperlink{namespacehoppin_1_1_game_information_a550036a5a24113f1dbc2384284a03d18}{Field\+Object}\mbox{[},\mbox{]} \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a06c81bb28f23b1ef42858eca0a7aacae}{Get\+Field\+State} ()
+\begin{DoxyCompactList}\small\item\em フィールド上のプレイヤー，その他アイテムの配置を取得する \end{DoxyCompactList}\item 
+\hyperlink{namespacehoppin_1_1_game_information_a550036a5a24113f1dbc2384284a03d18}{Field\+Object}\mbox{[},\mbox{]} \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a272a85973eb706357fa685e73f08bd2b}{Get\+Field\+Floor\+Color} ()
+\begin{DoxyCompactList}\small\item\em フィールドのマスの色を取得する Field\+Objectの\+Blank,PlayerA,B,C,Dのみが使用される \end{DoxyCompactList}\item 
+List$<$ \hyperlink{classhoppin_1_1_game_information_1_1_position}{Position} $>$ \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_aa7c301a2cbd17786c47fa2edcc1f6814}{Get\+Box\+Position\+List} ()
+\begin{DoxyCompactList}\small\item\em アイテム：箱の位置のリストを取得する \end{DoxyCompactList}\item 
+List$<$ \hyperlink{classhoppin_1_1_game_information_1_1_position}{Position} $>$ \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a8df55e5a2da45b535d3d980119ed0a94}{Get\+Shoes\+Position} ()
+\begin{DoxyCompactList}\small\item\em アイテム：靴の位置のリストを取得する \end{DoxyCompactList}\item 
+List$<$ \hyperlink{classhoppin_1_1_game_information_1_1_position}{Position} $>$ \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a0cae03263a7de986a4456de802ee3a89}{Get\+Bonus\+Position} ()
+\begin{DoxyCompactList}\small\item\em アイテム：ボーナスの位置のリストを取得する \end{DoxyCompactList}\item 
+\hyperlink{namespacehoppin_1_1_game_information_a550036a5a24113f1dbc2384284a03d18}{Field\+Object} \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_ac99dac78a4925fa8ec55d61f70b71adc}{Get\+My\+Player\+Id} ()
+\begin{DoxyCompactList}\small\item\em 自身の\+Field\+Objectにおける値を取得する \end{DoxyCompactList}\item 
+int \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a02eb13cfc8244f0be9f4f19aa450ec56}{Get\+Turn} ()
+\begin{DoxyCompactList}\small\item\em 現在のターン数を取得する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string {\bfseries name}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_adb45026d00edad25a4eee437222165f0}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_adb45026d00edad25a4eee437222165f0}
+
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classhoppin_1_1_game_information_1_1_abstract_player_a2f41b3d51e4873b6eb2ac04c1c38adcd}{Name}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em プレイヤーの名前を取得する \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+今回作成していただくプレイヤーの抽象クラスです． ゲーム側は\+Get\+Move()を使用してプレイヤーの動作を決定しています． 使用できる関数は参照値を返すため，取得したデータをそのまま変更すると，関数から取得できる値も変更されてしまいます． 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Abstract\+Player@{Abstract\+Player}}
+\index{Abstract\+Player@{Abstract\+Player}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Abstract\+Player()}{AbstractPlayer()}}]{\setlength{\rightskip}{0pt plus 5cm}hoppin.\+Game\+Information.\+Abstract\+Player.\+Abstract\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a4e302664d498e2f5b99bda58ec0e6aa6}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a4e302664d498e2f5b99bda58ec0e6aa6}
+
+
+コンストラクタ 名前表示が\+No\+Nameになります 
+
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Abstract\+Player@{Abstract\+Player}}
+\index{Abstract\+Player@{Abstract\+Player}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Abstract\+Player(string name)}{AbstractPlayer(string name)}}]{\setlength{\rightskip}{0pt plus 5cm}hoppin.\+Game\+Information.\+Abstract\+Player.\+Abstract\+Player (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a4375849e20ccf78ef5b4df436318d042}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a4375849e20ccf78ef5b4df436318d042}
+
+
+コンストラクタ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & 表示したい名前 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Bonus\+Position@{Get\+Bonus\+Position}}
+\index{Get\+Bonus\+Position@{Get\+Bonus\+Position}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Bonus\+Position()}{GetBonusPosition()}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Position}$>$ hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Bonus\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a0cae03263a7de986a4456de802ee3a89}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a0cae03263a7de986a4456de802ee3a89}
+
+
+アイテム：ボーナスの位置のリストを取得する 
+
+\begin{DoxyReturn}{Returns}
+ボーナスの位置のリスト 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Box\+Position\+List@{Get\+Box\+Position\+List}}
+\index{Get\+Box\+Position\+List@{Get\+Box\+Position\+List}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Box\+Position\+List()}{GetBoxPositionList()}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Position}$>$ hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Box\+Position\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_aa7c301a2cbd17786c47fa2edcc1f6814}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_aa7c301a2cbd17786c47fa2edcc1f6814}
+
+
+アイテム：箱の位置のリストを取得する 
+
+\begin{DoxyReturn}{Returns}
+Type\+:List$<$\+Position$>$ 箱の位置のリスト 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Field\+Floor\+Color@{Get\+Field\+Floor\+Color}}
+\index{Get\+Field\+Floor\+Color@{Get\+Field\+Floor\+Color}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Field\+Floor\+Color()}{GetFieldFloorColor()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Object} \mbox{[},\mbox{]} hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Field\+Floor\+Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a272a85973eb706357fa685e73f08bd2b}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a272a85973eb706357fa685e73f08bd2b}
+
+
+フィールドのマスの色を取得する Field\+Objectの\+Blank,PlayerA,B,C,Dのみが使用される 
+
+\begin{DoxyReturn}{Returns}
+Type\+:Field\+Object\mbox{[},\mbox{]} 8×8の配列 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Field\+State@{Get\+Field\+State}}
+\index{Get\+Field\+State@{Get\+Field\+State}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Field\+State()}{GetFieldState()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Object} \mbox{[},\mbox{]} hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Field\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a06c81bb28f23b1ef42858eca0a7aacae}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a06c81bb28f23b1ef42858eca0a7aacae}
+
+
+フィールド上のプレイヤー，その他アイテムの配置を取得する 
+
+\begin{DoxyReturn}{Returns}
+Type\+:Field\+Object\mbox{[},\mbox{]} 8×8の配列 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+My\+Data@{Get\+My\+Data}}
+\index{Get\+My\+Data@{Get\+My\+Data}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+My\+Data()}{GetMyData()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player\+Data} hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+My\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a3b588154f3bbdf1c554870fab81bfdc9}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a3b588154f3bbdf1c554870fab81bfdc9}
+
+
+自身のスコア，位置，\+Shoesの取得状況を取得する 
+
+\begin{DoxyReturn}{Returns}
+Type\+:Dictionary$<$\+Field\+Object,\+Player\+Data$>$ 自身のスコア，位置，\+Shoesの取得状況 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+My\+Player\+Id@{Get\+My\+Player\+Id}}
+\index{Get\+My\+Player\+Id@{Get\+My\+Player\+Id}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+My\+Player\+Id()}{GetMyPlayerId()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Object} hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+My\+Player\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_ac99dac78a4925fa8ec55d61f70b71adc}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_ac99dac78a4925fa8ec55d61f70b71adc}
+
+
+自身の\+Field\+Objectにおける値を取得する 
+
+\begin{DoxyReturn}{Returns}
+Type\+:Field\+Object PlayerA or PlayerB or PlayerC or PlayerD 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Player\+Data\+List@{Get\+Player\+Data\+List}}
+\index{Get\+Player\+Data\+List@{Get\+Player\+Data\+List}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Player\+Data\+List()}{GetPlayerDataList()}}]{\setlength{\rightskip}{0pt plus 5cm}Dictionary$<${\bf Field\+Object},{\bf Player\+Data}$>$ hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Player\+Data\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a9846a024bb8d370a5d999c325c2bc15c}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a9846a024bb8d370a5d999c325c2bc15c}
+
+
+Field\+Objectを\+Keyとする\+Player\+Dataのリストを取得する 
+
+\begin{DoxyReturn}{Returns}
+Field\+Objectを\+Keyとする\+Player\+Dataの\+Dectionary 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Shoes\+Position@{Get\+Shoes\+Position}}
+\index{Get\+Shoes\+Position@{Get\+Shoes\+Position}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Shoes\+Position()}{GetShoesPosition()}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Position}$>$ hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Shoes\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a8df55e5a2da45b535d3d980119ed0a94}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a8df55e5a2da45b535d3d980119ed0a94}
+
+
+アイテム：靴の位置のリストを取得する 
+
+\begin{DoxyReturn}{Returns}
+靴の位置のリスト 
+\end{DoxyReturn}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Get\+Turn@{Get\+Turn}}
+\index{Get\+Turn@{Get\+Turn}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Get\+Turn()}{GetTurn()}}]{\setlength{\rightskip}{0pt plus 5cm}int hoppin.\+Game\+Information.\+Abstract\+Player.\+Get\+Turn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a02eb13cfc8244f0be9f4f19aa450ec56}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a02eb13cfc8244f0be9f4f19aa450ec56}
+
+
+現在のターン数を取得する 
+
+\begin{DoxyReturn}{Returns}
+ターン数 
+\end{DoxyReturn}
+
+
+\subsection{Property Documentation}
+\index{hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}!Name@{Name}}
+\index{Name@{Name}!hoppin\+::\+Game\+Information\+::\+Abstract\+Player@{hoppin\+::\+Game\+Information\+::\+Abstract\+Player}}
+\subsubsection[{\texorpdfstring{Name}{Name}}]{\setlength{\rightskip}{0pt plus 5cm}string hoppin.\+Game\+Information.\+Abstract\+Player.\+Name\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{classhoppin_1_1_game_information_1_1_abstract_player_a2f41b3d51e4873b6eb2ac04c1c38adcd}{}\label{classhoppin_1_1_game_information_1_1_abstract_player_a2f41b3d51e4873b6eb2ac04c1c38adcd}
+
+
+プレイヤーの名前を取得する 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+System/Abstract\+Player.\+cs\end{DoxyCompactItemize}

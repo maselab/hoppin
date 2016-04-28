@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fieldstate',['FieldState',['../db/d58/classhoppin_1_1_game_system_1_1_game_state.html#a18a883396bbe4129385e35f3c393adc1',1,'hoppin::GameSystem::GameState']]]
+  ['name',['Name',['../classhoppin_1_1_game_information_1_1_abstract_player.html#a2f41b3d51e4873b6eb2ac04c1c38adcd',1,'hoppin::GameInformation::AbstractPlayer']]]
 ];

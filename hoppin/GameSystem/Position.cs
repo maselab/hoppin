@@ -6,8 +6,41 @@ using System.Threading.Tasks;
 
 namespace hoppin.GameInformation
 {
-    public enum PlayerMove : int { Up, Down, Left, Right };
-    public enum FieldObject : int { Blank, PlayerA, PlayerB, PlayerC, PlayerD, Shoes, Bonus, Box };
+    /// <summary>
+    /// プレイヤーの進む方向を定義
+    /// </summary>
+    public enum PlayerMove : int {
+        /// 上方向
+        Up,
+        /// 下方向
+        Down,
+        /// 左方向
+        Left,
+        /// 右方向
+        Right
+    };
+    /// <summary>
+    /// ゲームフィールドのプレイヤー、アイテムの種類を定義
+    /// </summary>
+    public enum FieldObject : int {
+        /// 空のマス
+        Blank,
+        /// プレイヤーAマス
+        PlayerA,
+        /// プレイヤーBマス
+        PlayerB,
+        /// プレイヤーCマス
+        PlayerC,
+        /// プレイヤーDマス
+        PlayerD,
+        /// シューズマス 
+        Shoes,
+        /// ボーナスマス
+        Bonus,
+        /// ！ボックスマス 
+        Box
+    };
+
     /// <summary>
     /// 盤面の位置を表現するための汎用クラス
     /// </summary>

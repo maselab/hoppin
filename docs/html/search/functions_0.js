@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dispose',['Dispose',['../classhoppin_1_1_hoppin_u_i.html#a6bb97d2a8631997b34eb333080958c23',1,'hoppin::HoppinUI']]]
+  ['abstractplayer',['AbstractPlayer',['../classhoppin_1_1_game_information_1_1_abstract_player.html#a4e302664d498e2f5b99bda58ec0e6aa6',1,'hoppin.GameInformation.AbstractPlayer.AbstractPlayer()'],['../classhoppin_1_1_game_information_1_1_abstract_player.html#a4375849e20ccf78ef5b4df436318d042',1,'hoppin.GameInformation.AbstractPlayer.AbstractPlayer(string name)']]]
 ];
