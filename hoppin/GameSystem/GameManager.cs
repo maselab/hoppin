@@ -220,8 +220,8 @@ namespace hoppin.GameSystem
         }
         private bool IsBump()
         {
-            int playerHeight = gameState.playerDataList[gameState.CurrentPlayer].PositionY;
-            int playerWidth = gameState.playerDataList[gameState.CurrentPlayer].PositionX;
+            int playerHeight = gameState.CurrentPlayerData.position.Y;
+            int playerWidth = gameState.CurrentPlayerData.position.X;
 
             if (gameState.CurrentPlayerMove == PlayerMove.Up && playerHeight == 0 ||
                 gameState.CurrentPlayerMove == PlayerMove.Down && playerHeight == 7 ||
@@ -257,12 +257,12 @@ namespace hoppin.GameSystem
         {
             for(int i = 0; i < gameState.FieldHeight; i++)
             {
-                gameState.FieldFloorColor[i, destination.x] = gameState.CurrentPlayer;
+                gameState.FieldFloorColor[i, destination.X] = gameState.CurrentPlayer;
             }
 
             for(int i = 0; i < gameState.FieldWidth; i++)
             {
-                gameState.FieldFloorColor[destination.y, i] = gameState.CurrentPlayer;
+                gameState.FieldFloorColor[destination.Y, i] = gameState.CurrentPlayer;
             }
         }
         private Position GetPlayerDestination()
@@ -277,12 +277,12 @@ namespace hoppin.GameSystem
             else if (gameState.CurrentPlayerMove == PlayerMove.Left)
                 width = -1;
 
-            return new Position(gameState.CurrentPlayerData.PositionX + width, gameState.CurrentPlayerData.PositionY + height);
+            return new Position(gameState.CurrentPlayerData.position.X + width, gameState.CurrentPlayerData.position.Y + height);
         }
         private FieldObject IsGetItems()
         {
-            int playerHeight = gameState.CurrentPlayerData.PositionY;
-            int playerWidth = gameState.CurrentPlayerData.PositionX;
+            int playerHeight = gameState.CurrentPlayerData.position.Y;
+            int playerWidth = gameState.CurrentPlayerData.position.X;
 
             int height = 0; int width = 0;
             if (gameState.CurrentPlayerMove == PlayerMove.Up)
@@ -381,8 +381,8 @@ namespace hoppin.GameSystem
         {
             //1歩前進
             //アイテムの塗り替えも同時に行われているはず
-            int playerHeight = gameState.CurrentPlayerData.PositionY;
-            int playerWidth = gameState.CurrentPlayerData.PositionX;
+            int playerHeight = gameState.CurrentPlayerData.position.Y;
+            int playerWidth = gameState.CurrentPlayerData.position.X;
 
             int height = 0; int width = 0;
             if (gameState.CurrentPlayerMove == PlayerMove.Up)
@@ -397,8 +397,8 @@ namespace hoppin.GameSystem
             gameState.FieldFloorColor[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動先の色塗り替え
             gameState.FieldState[playerHeight, playerWidth] = FieldObject.Blank;//自分のいた位置をBLANKに
             gameState.FieldState[playerHeight + height, playerWidth + width] = gameState.CurrentPlayer;//移動後を自分のマスに
-            gameState.CurrentPlayerData.PositionY = playerHeight + height;
-            gameState.CurrentPlayerData.PositionX = playerWidth + width;
+            gameState.CurrentPlayerData.position.Y = playerHeight + height;
+            gameState.CurrentPlayerData.position.X = playerWidth + width;
         }
         private void SearchClosedSpace()
         {

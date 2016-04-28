@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using hoppin.GameSystem;
+using hoppin.Player;
 
 namespace hoppin
 {
