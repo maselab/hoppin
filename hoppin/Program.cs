@@ -30,7 +30,7 @@ namespace hoppin
             //例：100 → 進行を100ms遅らせる
             //0 ~ 500 までの値で調整
             GameManager gameManager = new GameManager
-                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,100);
+                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,20);
             Application.Run(new HoppinUI(gameManager));
             
         }
