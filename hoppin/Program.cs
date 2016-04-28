@@ -34,12 +34,5 @@ namespace hoppin
             Application.Run(new HoppinUI(gameManager));
             
         }
-        /// <summary>
-        /// This is testFunc()
-        /// </summary>
-        static void testFunc()
-        {
-
-        }
     }
 }
