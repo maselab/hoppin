@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using hoppin.GameSystem;
-using hoppin.GameInformation;
 
-namespace hoppin
+namespace hoppin.GameInformation
 {
     /// <summary>
     /// 今回作成していただくプレイヤーの抽象クラスです．
