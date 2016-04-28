@@ -51,9 +51,9 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="hoppin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="hoppinUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\hoppin.dll</HintPath>
+      <HintPath>bin\Debug\hoppinUtility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
