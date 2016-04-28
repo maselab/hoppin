@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using hoppin.GameSystem;
+using hoppin.GameInformation;
 
 namespace hoppin.GameSystem.UI
 {
@@ -17,21 +18,21 @@ namespace hoppin.GameSystem.UI
             e.Graphics.ResetTransform();
             e.Graphics.TranslateTransform(42 * (x+1), 42 * (y+1));
             drawBlockFrame(e);
-            if (fieldObj != FieldObject.BLANK)
+            if (fieldObj != FieldObject.Blank)
             {
                 SolidBrush blockColor;
                 switch (fieldObj)
                 {
-                    case FieldObject.PLAYER1:
+                    case FieldObject.PlayerA:
                         blockColor = new SolidBrush(style.playerAColor);
                         break;
-                    case FieldObject.PLAYER2:
+                    case FieldObject.PlayerB:
                         blockColor = new SolidBrush(style.playerBColor);
                         break;
-                    case FieldObject.PLAYER3:
+                    case FieldObject.PlayerC:
                         blockColor = new SolidBrush(style.playerCColor);
                         break;
-                    case FieldObject.PLAYER4:
+                    case FieldObject.PlayerD:
                         blockColor = new SolidBrush(style.playerDColor);
                         break;
                     default:

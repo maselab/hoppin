@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
+using hoppin.GameInformation;
+
 namespace hoppin.GameSystem.UI
 {
     class BattleField
