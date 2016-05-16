@@ -22,7 +22,7 @@ namespace hoppin.GameSystem
         private const int FIELDWIDTH = 8;
         private const int SHOESTURN = 5;
         private int turnNum = 0;
-        private const int THINKTIME = 500;
+        protected int THINKTIME = 500;
         private const int maxScore = 300;
         protected int maxTurn;
         protected FieldObject[,] fieldState = new FieldObject[FIELDHEIGHT,FIELDWIDTH];

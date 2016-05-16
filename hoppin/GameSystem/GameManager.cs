@@ -20,13 +20,23 @@ namespace hoppin.GameSystem
 
         private delegate PlayerMove MoveDelegate();
 
-        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount, int fps)
+        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4,int playCount, int fps, int thinkTime)
         {
             playerList.Add(FieldObject.PlayerA, player1);
             playerList.Add(FieldObject.PlayerB, player2);
             playerList.Add(FieldObject.PlayerC, player3);
             playerList.Add(FieldObject.PlayerD, player4);
-            gameState = new NewGameState(GetPlayerName(),playCount);
+            gameState = new NewGameState(GetPlayerName(),playCount,thinkTime);
+            this.processFPS = fps;
+        }
+
+        public GameManager(AbstractPlayer player1, AbstractPlayer player2, AbstractPlayer player3, AbstractPlayer player4, int playCount, int fps)
+        {
+            playerList.Add(FieldObject.PlayerA, player1);
+            playerList.Add(FieldObject.PlayerB, player2);
+            playerList.Add(FieldObject.PlayerC, player3);
+            playerList.Add(FieldObject.PlayerD, player4);
+            gameState = new NewGameState(GetPlayerName(), playCount);
             this.processFPS = fps;
         }
 
@@ -505,6 +515,51 @@ namespace hoppin.GameSystem
                 // fieldStoorColorに初期色 :ok
                 this.playerName = playerName;
                 this.maxTurn = playCount;
+
+                for (int x = 0; x < this.FieldWidth; x++)
+                {
+                    for (int y = 0; y < this.FieldHeight; y++)
+                    {
+                        if (y == 0 && x == 0)
+                        {
+                            this.FieldState[y, x] = FieldObject.PlayerA;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerA;
+                            playerDataList.Add(FieldObject.PlayerA, new PlayerData(x, y));
+                        }
+                        else if (y == FieldHeight - 1 && x == 0)
+                        {
+                            this.FieldState[y, x] = FieldObject.PlayerB;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerB;
+                            playerDataList.Add(FieldObject.PlayerB, new PlayerData(x, y));
+                        }
+                        else if (y == FieldHeight - 1 && x == FieldWidth - 1)
+                        {
+                            this.FieldState[y, x] = FieldObject.PlayerC;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerC;
+                            playerDataList.Add(FieldObject.PlayerC, new PlayerData(x, y));
+                        }
+                        else if (y == 0 && x == FieldWidth - 1)
+                        {
+                            this.FieldState[y, x] = FieldObject.PlayerD;
+                            this.FieldFloorColor[y, x] = FieldObject.PlayerD;
+                            playerDataList.Add(FieldObject.PlayerD, new PlayerData(x, y));
+                        }
+                        else
+                        {
+                            this.FieldState[y, x] = FieldObject.Blank;
+                            this.FieldFloorColor[y, x] = FieldObject.Blank;
+                        }
+                    }
+                }
+            }
+
+            public NewGameState(List<string> playerName, int playCount, int thinkTime)
+            {
+                // fieldObjectにplayer配置 :ok
+                // fieldStoorColorに初期色 :ok
+                this.playerName = playerName;
+                this.maxTurn = playCount;
+                this.THINKTIME = thinkTime;
 
                 for(int x = 0; x < this.FieldWidth; x++)
                 {
