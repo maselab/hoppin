@@ -29,3 +29,9 @@ C:\Users\hashiguchi\Documents\hoppin\hoppin\obj\Debug\hoppin.Properties.Resource
 C:\Users\hashiguchi\Documents\hoppin\hoppin\obj\Debug\hoppin.csproj.GenerateResource.Cache
 C:\Users\hashiguchi\Documents\hoppin\hoppin\bin\Debug\hoppin.exe
 C:\Users\hashiguchi\Documents\hoppin\hoppin\bin\Debug\hoppin.pdb
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\bin\Debug\hoppin.exe
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\bin\Debug\hoppin.pdb
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.csprojResolveAssemblyReference.cache
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.HoppinUI.resources
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.Properties.Resources.resources
+C:\Users\hayashi chihiro\Documents\hoppin\hoppin\obj\Debug\hoppin.csproj.GenerateResource.Cache

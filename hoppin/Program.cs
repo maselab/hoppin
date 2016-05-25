@@ -31,7 +31,7 @@ namespace hoppin
             //0 ~ 500 までの値で調整
             //引数：(AbstractPlayer , AbstractPlayer, AbstractPlayer, AbstractPlayer, int ターン数, int ゲーム進行速度, int 思考時間)
             GameManager gameManager = new GameManager
-                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,20);
+                (new SamplePlayer("a"), new SamplePlayer(), new SamplePlayer("c"), new SamplePlayer("d"),500,200);
             Application.Run(new HoppinUI(gameManager));
             
         }

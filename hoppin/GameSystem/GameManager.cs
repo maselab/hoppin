@@ -463,7 +463,7 @@ namespace hoppin.GameSystem
         }
         private int[,] Fill(int[,] field, int i, int j)
         { //塗りつぶしをする再帰関数
-
+            field[i, j] = 0;
             if (j > 0 && field[i, j - 1] == -1)
             {
                 field[i, j - 1] = 0;

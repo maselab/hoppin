@@ -308,6 +308,7 @@ namespace hoppin.GameSystem
                     && workField[i,j] == -1)
                     {
                         workField = Fill(workField, i, j);
+                        
                     }
                 }
             for (int i = 0; i < gameState.FieldHeight; i++)//囲み領域の発見
@@ -324,6 +325,7 @@ namespace hoppin.GameSystem
         private int[,] Fill(int[,] field, int x, int y)
         { //塗りつぶしをする再帰関数
             //x = height y = width
+
             if (y > 0 && field[x, y - 1] == -1)
             {
                 Fill(field, x, y - 1);
@@ -347,7 +349,7 @@ namespace hoppin.GameSystem
                 Fill(field, x - 1, y);
                 field[x - 1, y] = 0;
             }
-
+            field[x, y] = 0;
             return field;
         }
         private void AddScore()
